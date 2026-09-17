@@ -14,7 +14,8 @@ export const eventInfo: EventInfo = {
   location: 'Rosario, Argentina',
   locationConfirmed: false,
   date: 'Enero 2027',
-  youthCount: 350,
+  youthCount: 200,
+  totalCount: 250,
 };
 
 export const areas: Area[] = [

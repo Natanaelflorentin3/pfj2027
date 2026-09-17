@@ -92,6 +92,7 @@ export function renderHome(model: HomeModel): string {
         <span class="chip">📍 <b>${escapeHtml(eventInfo.location)}</b>${eventInfo.locationConfirmed ? '' : ' — sede a confirmar'}</span>
         <span class="chip">🗓️ <b>${escapeHtml(eventInfo.date)}</b></span>
         <span class="chip">👥 <b>~${escapeHtml(eventInfo.youthCount)}</b> jóvenes de 14–18</span>
+        <span class="chip">👥 <b>~${escapeHtml(eventInfo.totalCount)}</b> total de participantes</span>
       </div>
     </div>
   </header>

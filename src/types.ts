@@ -23,6 +23,7 @@ export interface EventInfo {
   locationConfirmed: boolean;
   date: string;
   youthCount: number;
+  totalCount: number;
 }
 
 export interface AreaStats {
