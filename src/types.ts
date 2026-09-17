@@ -60,15 +60,6 @@ export interface Consejero {
   barrio: string;
 }
 
-export interface PdfDoc {
-  id: string;
-  titulo: string;
-  categoria: string;
-  descripcion?: string;
-  /** Ruta pública del archivo, ej: "/pdfs/reglamento.pdf". null = todavía no se subió. */
-  archivo: string | null;
-}
-
 export type EstadoParticipante = 'aprobado' | 'pendiente';
 
 export interface Participante {
@@ -82,5 +73,16 @@ export interface Participante {
   fichaMedica: string;
 
 }
+
+
+export interface PdfDoc {
+  id: string;
+  titulo: string;
+  categoria: string;
+  descripcion?: string;
+  /** Ruta pública del archivo, ej: "/pdfs/reglamento.pdf". null = todavía no se subió. */
+  archivo: string | null;
+}
+
 
 

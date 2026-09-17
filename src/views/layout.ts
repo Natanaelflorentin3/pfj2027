@@ -12,8 +12,9 @@ const NAV_ITEMS: { key: NavKey; label: string; href: string }[] = [
   { key: 'objetivos', label: 'Objetivos', href: '/' },
   { key: 'calendario', label: 'Calendario semanal', href: '/calendario' },
   { key: 'consejeros', label: 'Consejeros', href: '/consejeros' },
-  { key: 'pdfs', label: 'PDFs importantes', href: '/pdfs' },
   { key: 'participantes', label: 'Participantes', href: '/participantes' },
+  { key: 'pdfs', label: 'PDFs importantes', href: '/pdfs' },
+  
 ];
 
 function renderNav(active: NavKey): string {

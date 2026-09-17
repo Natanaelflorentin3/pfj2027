@@ -28,7 +28,7 @@ app.get('/', (_req, res) => {
       eventInfo,
       areas,
       // Actualizá esta fecha a mano cada vez que cambien los datos.
-      lastUpdated: '17 de septiembre de 2026',
+      lastUpdated: '18 de septiembre de 2026',
     }),
   });
   res.send(html);
