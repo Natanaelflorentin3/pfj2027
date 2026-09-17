@@ -18,6 +18,7 @@ function renderFila(c: Consejero): string {
     <tr>
       <td>${escapeHtml(c.apellido)}, ${escapeHtml(c.nombre)}</td>
       <td>${escapeHtml(c.genero)}</td>
+      <td>${escapeHtml(c.barrio)}</td>
       <td><span class="status status--${c.estado === 'confirmado' ? 'done' : 'pending'}">${ESTADO_LABEL[c.estado]}</span></td>
     </tr>`;
 }
