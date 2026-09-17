@@ -111,8 +111,8 @@ export function renderHome(model: HomeModel): string {
 
     <div class="banner">
       <span class="dot"></span>
-      <p><strong>Próximo hito:</strong> reunión de este viernes con el matrimonio Mozzatti (directores de Sesión) — ahí se confirma la sede y se define el alcance real de cada objetivo de abajo. Esta página se va a ir actualizando después de esa reunión.</p>
-      <p><strong>Próximo hito:</strong></p>
+   <p><strong>Próximo hito:</strong> Reunion viernes 17/09/2026 con el staff completo , sede ? fecha ? y alcance..</p>
+     <p><strong>Próximo hito:</strong> a confirmar</p>
     </div>
 
     <section>
