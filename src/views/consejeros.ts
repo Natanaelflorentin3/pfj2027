@@ -42,14 +42,14 @@ export function renderConsejeros(consejeros: Consejero[]): string {
           </tbody>
         </table>
       </div>`
-    : `<p class="empty-state">Todavía no cargaste consejeros. Agregalos en <code>src/data/consejeros.ts</code>.</p>`;
+    : `<p class="empty-state">Todavía no confirmamos consejeros. los agregamos en <code>src/data/consejeros.ts</code>.</p>`;
 
   return `
   <header class="page-header">
     <div class="wrap">
       <p class="eyebrow">Logística · Consejeros</p>
       <h1>Consejeros que asisten</h1>
-      <p class="subtitle">Jóvenes adultos de 19 a 30 años a cargo de cada compañía.</p>
+      <p class="subtitle">Jóvenes adultos de 19 a 30 años ?.</p>
     </div>
   </header>
 

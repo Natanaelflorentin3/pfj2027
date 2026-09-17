@@ -86,7 +86,7 @@ export function renderHome(model: HomeModel): string {
       <p class="motto-badge">✦ ${escapeHtml(eventInfo.motto)} · ${escapeHtml(eventInfo.verse)} ✦</p>
       <p class="eyebrow">Logística · ${escapeHtml(eventInfo.title)}</p>
       <h1>Seguimiento de objetivos — Logística</h1>
-      <p class="subtitle">Matrimonio director de Logística · para uso del matrimonio director general, co-directores y equipo de Logística</p>
+      <p class="subtitle">Matrimonio director de Logística · para uso del matrimonio director general, y co-directores  </p>
 
       <div class="chips">
         <span class="chip">📍 <b>${escapeHtml(eventInfo.location)}</b>${eventInfo.locationConfirmed ? '' : ' — sede a confirmar'}</span>
@@ -112,6 +112,7 @@ export function renderHome(model: HomeModel): string {
     <div class="banner">
       <span class="dot"></span>
       <p><strong>Próximo hito:</strong> reunión de este viernes con el matrimonio Mozzatti (directores de Sesión) — ahí se confirma la sede y se define el alcance real de cada objetivo de abajo. Esta página se va a ir actualizando después de esa reunión.</p>
+      <p><strong>Próximo hito:</strong></p>
     </div>
 
     <section>

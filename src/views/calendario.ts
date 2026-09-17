@@ -39,7 +39,7 @@ export function renderCalendario(dias: DiaCalendario[]): string {
       <div class="calendar-grid">
         ${dias.map(renderDia).join('')}
       </div>
-      <p class="section-sub" style="margin-top:18px;">Para agregar o actualizar un día, editá <code>src/data/calendario.ts</code>. Los PDFs van en <code>public/files/</code>.</p>
+      <p class="section-sub" style="margin-top:18px;">Para agregar o actualizar un día tenemos que editar!<code>src/data/calendario.ts</code>. Los PDFs van en.. <code>public/files/</code>.</p>
     </section>
   </main>`;
 }
