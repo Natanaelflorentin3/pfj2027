@@ -35,6 +35,7 @@ export function renderConsejeros(consejeros: Consejero[]): string {
             <tr>
               <th>Consejero</th>
               <th>Género</th>
+               <th>Barrio</th>
               <th>Estado</th>
             </tr>
           </thead>
