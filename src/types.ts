@@ -57,6 +57,7 @@ export interface Consejero {
   apellido: string;
   genero: 'Masculino' | 'Femenino';
   estado: EstadoConsejero;
+  barrio: string;
 }
 
 export interface PdfDoc {
@@ -67,3 +68,19 @@ export interface PdfDoc {
   /** Ruta pública del archivo, ej: "/pdfs/reglamento.pdf". null = todavía no se subió. */
   archivo: string | null;
 }
+
+
+export interface Participante {
+  id: string;
+  nombre: string;
+  apellido: string;
+  genero: 'Masculino' | 'Femenino';
+  estado: EstadoParticipante;
+  barrio: string;
+  telefonoEmergencia: string;
+  fichaMedica: string;
+
+}
+
+
+export type EstadoParticipante = 'aprobado' | 'pendiente';
