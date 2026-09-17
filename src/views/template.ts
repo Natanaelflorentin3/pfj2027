@@ -149,7 +149,6 @@ export function renderPage(model: PageModel): string {
 
     <footer class="page-footer">
       <span>Última actualización: ${escapeHtml(lastUpdated)}</span>
-      <span>Compartan este link con el matrimonio director y los matrimonios co-directores para que sigan el avance.</span>
     </footer>
   </main>
 
