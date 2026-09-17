@@ -135,7 +135,8 @@ export function renderPage(model: PageModel): string {
 
     <div class="banner">
       <span class="dot"></span>
-      <p><strong>Próximo hito:</strong> Reunion viernes 17/09/2026 con el staff completo , sede ? fecha ? y alcance .</p>
+      <p><strong>Próximo hito:</strong> Reunion viernes 17/09/2026 con el staff completo , sede ? fecha ? y alcance..</p>
+     <p><strong>Próximo hito:</strong> a confirmar</p>
     </div>
 
     <section>

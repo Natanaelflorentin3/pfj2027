@@ -8,3 +8,7 @@ import { Consejero } from '../types';
  * estado puede ser 'confirmado' o 'a-confirmar'.
  */
 export const consejeros: Consejero[] = [];
+ [
+  { id: '1', nombre: 'Juan', apellido: 'Pérez', genero: 'Masculino', estado: 'confirmado' },
+  { id: '2', nombre: 'María', apellido: 'Gómez', genero: 'Femenino', estado: 'a-confirmar' },
+];
