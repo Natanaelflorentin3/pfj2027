@@ -34,7 +34,7 @@ export interface AreaStats {
   pct: number;
 }
 
-export type NavKey = 'objetivos' | 'calendario' | 'consejeros' | 'pdfs';
+export type NavKey = 'objetivos' | 'calendario' | 'consejeros' | 'participantes' | 'pdfs';
 
 /** Un día del PFJ dentro del calendario semanal. */
 export interface DiaCalendario {
@@ -69,6 +69,7 @@ export interface PdfDoc {
   archivo: string | null;
 }
 
+export type EstadoParticipante = 'aprobado' | 'pendiente';
 
 export interface Participante {
   id: string;
@@ -83,4 +84,3 @@ export interface Participante {
 }
 
 
-export type EstadoParticipante = 'aprobado' | 'pendiente';

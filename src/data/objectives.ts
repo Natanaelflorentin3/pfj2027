@@ -41,7 +41,7 @@ export const areas: Area[] = [
     name: 'Primeros auxilios',
     icon: '⛑️',
     objectives: [
-      { id: 'pa-1', name: 'Definir posta médica, insumos y cobertura', status: 'pending' },
+      { id: 'pa-1', name: 'Definir posta médica, insumos y cobertura', status: 'pending', responsible: 'Jael Florentin' },
     ],
   },
   {

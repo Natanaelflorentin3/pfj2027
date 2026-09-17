@@ -9,6 +9,8 @@ import { renderHome } from './views/home';
 import { renderCalendario } from './views/calendario';
 import { renderConsejeros } from './views/consejeros';
 import { renderPdfs } from './views/pdfs';
+import { participantes } from './data/participantes';
+import { renderParticipantes } from './views/participantes';
 
 const app = express();
 const PORT = Number(process.env.PORT) || 3000;
@@ -50,6 +52,17 @@ app.get('/consejeros', (_req, res) => {
     pageDescription: 'Consejeros que asisten al PFJ 2027, con su estado de confirmación.',
     eventInfo,
     bodyHtml: renderConsejeros(consejeros),
+  });
+  res.send(html);
+});
+
+app.get('/participantes', (_req, res) => {
+  const html = renderLayout({
+    active: 'participantes',
+    pageTitle: 'Participantes',
+    pageDescription: 'Jóvenes participantes del PFJ 2027, con su estado de aprobación.',
+    eventInfo,
+    bodyHtml: renderParticipantes(participantes),
   });
   res.send(html);
 });

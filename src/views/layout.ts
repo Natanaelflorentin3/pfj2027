@@ -13,6 +13,7 @@ const NAV_ITEMS: { key: NavKey; label: string; href: string }[] = [
   { key: 'calendario', label: 'Calendario semanal', href: '/calendario' },
   { key: 'consejeros', label: 'Consejeros', href: '/consejeros' },
   { key: 'pdfs', label: 'PDFs importantes', href: '/pdfs' },
+  { key: 'participantes', label: 'Participantes', href: '/participantes' },
 ];
 
 function renderNav(active: NavKey): string {
