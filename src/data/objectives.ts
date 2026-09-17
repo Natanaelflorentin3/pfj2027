@@ -61,4 +61,23 @@ export const areas: Area[] = [
       { id: 'kits-1', name: 'Definir contenido del kit y armar cantidades por compañía', status: 'pending' },
     ],
   },
+
+    {
+    id: 'Comida',
+    name: 'Comida',
+    icon: '🍽️',
+    objectives: [
+      { id: 'Comida-1', name: 'Definir tipo de comida y cantidades', status: 'pending' },
+    ],
+  },
+
+
+      {
+    id: 'Tecnología',
+    name: 'Tecnología',
+    icon: '💻',
+    objectives: [
+      { id: 'Tecnología-1', name: 'Definir necesidades tecnológicas y armar plan de implementación', status: 'pending' },
+    ],
+  },
 ];
