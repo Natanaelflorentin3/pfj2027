@@ -23,7 +23,6 @@ export interface EventInfo {
   locationConfirmed: boolean;
   date: string;
   youthCount: number;
- 
 }
 
 export interface AreaStats {
@@ -32,4 +31,38 @@ export interface AreaStats {
   progress: number;
   done: number;
   pct: number;
+}
+
+export type NavKey = 'objetivos' | 'calendario' | 'consejeros' | 'pdfs';
+
+/** Un día del PFJ dentro del calendario semanal. */
+export interface DiaCalendario {
+  id: string;
+  /** Ej: "Día 1" */
+  label: string;
+  /** Ej: "Miércoles 6 de enero" — dejar undefined hasta tener la fecha confirmada */
+  fecha?: string;
+  /** Resumen corto de lo que pasa ese día (opcional, además del PDF) */
+  resumen?: string;
+  /** Ruta del PDF con las actividades del día, ej: "/pdfs/dia-1.pdf". null = todavía no se subió. */
+  pdf: string | null;
+}
+
+export type EstadoConsejero = 'confirmado' | 'a-confirmar';
+
+export interface Consejero {
+  id: string;
+  nombre: string;
+  apellido: string;
+  genero: 'Masculino' | 'Femenino';
+  estado: EstadoConsejero;
+}
+
+export interface PdfDoc {
+  id: string;
+  titulo: string;
+  categoria: string;
+  descripcion?: string;
+  /** Ruta pública del archivo, ej: "/pdfs/reglamento.pdf". null = todavía no se subió. */
+  archivo: string | null;
 }

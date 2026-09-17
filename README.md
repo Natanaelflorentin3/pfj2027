@@ -1,51 +1,88 @@
 # Logística PFJ 2027
 
-Sitio con el seguimiento de objetivos del área de Logística del PFJ 2027
-(colectivos, seguridad, primeros auxilios, camisetas y kits), pensado para
+Sitio con el seguimiento del área de Logística del PFJ 2027, pensado para
 compartir con el matrimonio director general y los matrimonios co-directores.
+Tiene 4 secciones con su propia URL, conectadas por una barra de navegación:
 
-Backend en **Express + TypeScript**. La página se genera en el servidor a
-partir de los datos de `src/data/objectives.ts`, y el CSS está separado en
-varios archivos dentro de `public/css/`.
+- **Objetivos** (`/`) — colectivos, seguridad, primeros auxilios, camisetas y kits
+- **Calendario semanal** (`/calendario`) — los 5 días del PFJ, cada uno con su PDF de actividades
+- **Consejeros** (`/consejeros`) — listado de consejeros con su estado (confirmado / a confirmar)
+- **PDFs importantes** (`/pdfs`) — reglamentos, autorizaciones y demás documentos
+
+Backend en **Express + TypeScript**. Cada página se genera en el servidor a
+partir de los datos de `src/data/`, y el CSS está separado en varios archivos
+dentro de `public/css/`.
 
 ## Estructura del proyecto
 
 ```
 pfj-logistica/
 ├── src/
-│   ├── server.ts            # Servidor Express (punto de entrada)
-│   ├── types.ts             # Tipos compartidos (Objective, Area, EventInfo...)
-│   ├── stats.ts             # Cálculo de progreso general y por área
-│   ├── data/
-│   │   └── objectives.ts    # ← ACÁ SE EDITA el contenido (áreas, objetivos, estado)
+│   ├── server.ts             # Servidor Express y rutas (/, /calendario, /consejeros, /pdfs)
+│   ├── types.ts              # Tipos compartidos
+│   ├── stats.ts              # Cálculo de progreso general y por área
+│   ├── data/                 # ← ACÁ SE EDITA el contenido
+│   │   ├── objectives.ts     #   áreas y objetivos de Logística
+│   │   ├── calendario.ts     #   los 5 días del PFJ y su PDF
+│   │   ├── consejeros.ts     #   listado de consejeros
+│   │   └── pdfs.ts           #   documentos importantes
 │   └── views/
-│       └── template.ts      # Genera el HTML de la página a partir de los datos
+│       ├── layout.ts         # Molde común: <head>, nav bar, cierre de <body>
+│       ├── home.ts           # Página de Objetivos (con el hero grande)
+│       ├── calendario.ts     # Página de Calendario semanal
+│       ├── consejeros.ts     # Página de Consejeros
+│       └── pdfs.ts           # Página de PDFs importantes
 ├── public/
 │   ├── css/
-│   │   ├── variables.css    # Paleta de colores y tokens (claro/oscuro)
-│   │   ├── base.css         # Reset y tipografía base
-│   │   └── components.css   # Hero, tarjetas, chips, barra de progreso, etc.
-│   └── js/
-│       └── theme.js         # Botón de tema claro/oscuro
+│   │   ├── variables.css     # Paleta de colores y tokens (claro/oscuro)
+│   │   ├── base.css          # Reset y tipografía base
+│   │   └── components.css    # Nav bar, hero, tarjetas, calendario, tabla, etc.
+│   ├── js/
+│   │   └── theme.js          # Botón de tema claro/oscuro
+│   └── files/                # ← ACÁ VAN LOS PDFs (calendario, reglamentos, etc.)
 ├── package.json
 ├── tsconfig.json
-└── render.yaml               # Configuración lista para Render
+└── render.yaml                # Configuración lista para Render
 ```
 
 ## Cómo editar el contenido
 
-Todo lo que se ve en la página sale de **`src/data/objectives.ts`**. Para
-actualizar el avance, edite ese archivo:
+### Objetivos de Logística — `src/data/objectives.ts`
 
 ```ts
 { id: 'transporte-1', name: 'Definir cantidad de unidades y proveedor', status: 'pending' }
 ```
 
 - `status`: `'pending'` (pendiente), `'progress'` (en curso) o `'done'` (hecho)
-- `responsible`: nombre del matrimonio o persona responsable (opcional)
-- `dueDate`: fecha límite como texto, ej. `'15 de octubre'` (opcional)
+- `responsible` y `dueDate` son opcionales.
 
-Los contadores y la barra de progreso de arriba se recalculan solos.
+### Calendario semanal — `src/data/calendario.ts`
+
+```ts
+{ id: 'dia-1', label: 'Día 1', fecha: 'Miércoles 6 de enero', pdf: '/files/dia-1.pdf' }
+```
+
+Subí el PDF de cada día a `public/files/` con ese mismo nombre, y completá
+`pdf` con la ruta. Mientras `pdf` sea `null`, la página muestra "PDF
+pendiente de subir".
+
+### Consejeros — `src/data/consejeros.ts`
+
+```ts
+{ id: 'juan-perez', nombre: 'Juan', apellido: 'Pérez', genero: 'Masculino', estado: 'confirmado' }
+```
+
+`estado` es `'confirmado'` o `'a-confirmar'`. Los contadores de arriba de la
+tabla se recalculan solos.
+
+### PDFs importantes — `src/data/pdfs.ts`
+
+```ts
+{ id: 'reglamento-general', titulo: 'Reglamento general del PFJ', categoria: 'General', archivo: '/files/reglamento-general.pdf' }
+```
+
+Mismo mecanismo: subís el archivo a `public/files/` y completás `archivo`
+con la ruta.
 
 ## Desarrollo local
 
@@ -82,10 +119,10 @@ para crear el servicio con un clic desde el repo.
 
 ## Próximos pasos posibles
 
-- Guardar los objetivos en una base de datos (por ejemplo PostgreSQL, como en
-  el curso de FUNVAL) para poder editarlos desde un formulario en vez de
-  tocar código.
+- Guardar todo (objetivos, consejeros, calendario) en una base de datos
+  (por ejemplo PostgreSQL, como en el curso de FUNVAL) para poder editarlo
+  desde un formulario en vez de tocar código.
 - Agregar un login simple para que cada matrimonio co-director pueda marcar
-  sus propios objetivos como "en curso" o "hecho".
+  sus propios objetivos o confirmar consejeros sin pasar por vos.
 - Sumar las demás áreas del PFJ (Sesión, etc.) si en algún momento quieren
   centralizar todo en un solo sitio.

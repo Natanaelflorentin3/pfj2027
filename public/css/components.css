@@ -1,3 +1,72 @@
+/* ---------- Nav bar ---------- */
+
+.topnav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--color-navy-deep);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.topnav-inner {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding-block: 12px;
+}
+
+.brand {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14.5px;
+  color: #F5FAFD;
+  white-space: nowrap;
+}
+
+.brand-sep {
+  color: var(--color-gold);
+}
+
+.navlinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-left: 4px;
+  flex: 1;
+}
+
+.navlink {
+  color: #C9DCEA;
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 600;
+  padding: 7px 12px;
+  border-radius: 999px;
+  transition: background 0.15s ease, color 0.15s ease;
+  white-space: nowrap;
+}
+
+.navlink:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #FFFFFF;
+}
+
+.navlink--active {
+  background: var(--color-gold);
+  color: var(--color-navy-deep);
+}
+
+@media (max-width: 720px) {
+  .topnav-inner {
+    flex-wrap: wrap;
+  }
+  .navlinks {
+    order: 3;
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
 /* ---------- Hero ---------- */
 
 .hero {
@@ -49,18 +118,16 @@
 }
 
 .theme-toggle {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.35);
   background: rgba(255, 255, 255, 0.12);
   color: #F5FAFD;
-  font-size: 16px;
+  font-size: 15px;
   cursor: pointer;
   transition: background 0.15s ease, transform 0.15s ease;
+  flex: none;
 }
 
 .theme-toggle:hover {
@@ -363,4 +430,195 @@
   .stats-row {
     grid-template-columns: repeat(2, 1fr);
   }
+}
+
+/* ---------- Page header (páginas sin hero grande) ---------- */
+
+.page-header {
+  background: linear-gradient(180deg, var(--color-navy-deep) 0%, var(--color-navy) 100%);
+  padding-block: 34px 30px;
+  color: #F5FAFD;
+}
+
+.page-header .eyebrow {
+  color: var(--color-sky);
+}
+
+.page-header h1 {
+  font-size: clamp(24px, 3.6vw, 32px);
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 6px;
+  text-wrap: balance;
+}
+
+.page-header .subtitle {
+  color: #DCEBF4;
+  margin-bottom: 0;
+}
+
+/* ---------- Calendario semanal ---------- */
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.day-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.day-card-head {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.day-label {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--color-navy);
+}
+
+.day-date {
+  font-size: 12.5px;
+  color: var(--color-text-muted);
+}
+
+.day-summary {
+  font-size: 13.5px;
+  color: var(--color-text);
+}
+
+.pdf-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: center;
+  background: var(--color-primary-soft);
+  color: var(--color-blue);
+  border: 1px solid var(--color-blue);
+  border-radius: var(--radius-sm);
+  padding: 9px 12px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  margin-top: auto;
+  transition: background 0.15s ease;
+}
+
+.pdf-btn:hover {
+  background: var(--color-blue);
+  color: #FFFFFF;
+}
+
+.pdf-btn--pending {
+  background: var(--color-surface-alt);
+  color: var(--color-text-muted);
+  border-color: var(--color-border);
+  cursor: default;
+}
+
+/* ---------- Consejeros (tabla) ---------- */
+
+.table-wrap {
+  margin-top: 24px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.table th {
+  text-align: left;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+  background: var(--color-surface-alt);
+  padding: 12px 16px;
+  white-space: nowrap;
+}
+
+.table td {
+  padding: 12px 16px;
+  border-top: 1px solid var(--color-border);
+  white-space: nowrap;
+}
+
+/* ---------- PDFs importantes ---------- */
+
+.pdf-list {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pdf-row {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.pdf-row-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.pdf-category {
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+.pdf-title {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--color-text);
+}
+
+.pdf-desc {
+  font-size: 12.5px;
+  color: var(--color-text-muted);
+}
+
+/* ---------- Estado vacío ---------- */
+
+.empty-state {
+  margin-top: 24px;
+  background: var(--color-surface-alt);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  color: var(--color-text-muted);
+  font-size: 14px;
 }
