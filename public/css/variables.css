@@ -1,0 +1,107 @@
+/*
+  Paleta tomada del arte del lema del PFJ 2027:
+  "Regocíjate en Cristo" — Filipenses 4:4
+  (azul marino, celeste, amarillo dorado, fondo crema)
+*/
+
+:root {
+  --font-display: 'Sora', 'Segoe UI', sans-serif;
+  --font-body: 'Inter', 'Segoe UI', sans-serif;
+
+  /* Superficie */
+  --color-bg: #FAF4E6;
+  --color-surface: #FFFFFF;
+  --color-surface-alt: #F1E8D2;
+  --color-border: #E4D7B4;
+
+  /* Texto */
+  --color-text: #143352;
+  --color-text-muted: #5B7285;
+
+  /* Marca (del arte del lema) */
+  --color-navy: #123A5E;
+  --color-navy-deep: #0C2A44;
+  --color-blue: #2E7EB0;
+  --color-sky: #BFE1EE;
+  --color-gold: #E7AC2E;
+  --color-gold-soft: #F6E4B8;
+
+  --color-primary: var(--color-blue);
+  --color-primary-soft: #DDEEF6;
+  --color-accent: var(--color-gold);
+
+  /* Estados (semánticos, independientes de la marca) */
+  --color-pending-bg: #F5E7C4;
+  --color-pending-fg: #8A6412;
+  --color-progress-bg: #DCEAF7;
+  --color-progress-fg: #1E5D8C;
+  --color-done-bg: #DCF0E3;
+  --color-done-fg: #1F6B3B;
+
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --radius-sm: 10px;
+  --shadow-card: 0 1px 2px rgba(18, 58, 94, 0.05), 0 10px 26px -14px rgba(18, 58, 94, 0.25);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --color-bg: #0B1B2B;
+    --color-surface: #12283D;
+    --color-surface-alt: #17314A;
+    --color-border: #234460;
+
+    --color-text: #EAF2F8;
+    --color-text-muted: #93AEC4;
+
+    --color-navy: #BFE1EE;
+    --color-navy-deep: #0B1B2B;
+    --color-blue: #6FB3DC;
+    --color-sky: #1E4B68;
+    --color-gold: #F0C15C;
+    --color-gold-soft: #3A2F14;
+
+    --color-primary: var(--color-blue);
+    --color-primary-soft: #17324A;
+    --color-accent: var(--color-gold);
+
+    --color-pending-bg: #3B2F16;
+    --color-pending-fg: #F0C15C;
+    --color-progress-bg: #1C3550;
+    --color-progress-fg: #8FC3EA;
+    --color-done-bg: #163A26;
+    --color-done-fg: #7FD79E;
+
+    --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.35), 0 14px 32px -16px rgba(0, 0, 0, 0.6);
+  }
+}
+
+:root[data-theme='dark'] {
+  --color-bg: #0B1B2B;
+  --color-surface: #12283D;
+  --color-surface-alt: #17314A;
+  --color-border: #234460;
+
+  --color-text: #EAF2F8;
+  --color-text-muted: #93AEC4;
+
+  --color-navy: #BFE1EE;
+  --color-navy-deep: #0B1B2B;
+  --color-blue: #6FB3DC;
+  --color-sky: #1E4B68;
+  --color-gold: #F0C15C;
+  --color-gold-soft: #3A2F14;
+
+  --color-primary: var(--color-blue);
+  --color-primary-soft: #17324A;
+  --color-accent: var(--color-gold);
+
+  --color-pending-bg: #3B2F16;
+  --color-pending-fg: #F0C15C;
+  --color-progress-bg: #1C3550;
+  --color-progress-fg: #8FC3EA;
+  --color-done-bg: #163A26;
+  --color-done-fg: #7FD79E;
+
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.35), 0 14px 32px -16px rgba(0, 0, 0, 0.6);
+}
