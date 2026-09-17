@@ -33,7 +33,7 @@ export const areas: Area[] = [
     name: 'Seguridad',
     icon: '🛡️',
     objectives: [
-      { id: 'seguridad-1', name: 'Armar plan de seguridad y control de acceso al predio', status: 'pending' },
+      { id: 'seguridad-1', name: 'Armar plan de seguridad y control de acceso al predio', status: 'progress', responsible: 'Natanael Florentin' },
     ],
   },
   {
@@ -41,7 +41,7 @@ export const areas: Area[] = [
     name: 'Primeros auxilios',
     icon: '⛑️',
     objectives: [
-      { id: 'pa-1', name: 'Definir posta médica, insumos y cobertura', status: 'pending', responsible: 'Jael Florentin' },
+      { id: 'pa-1', name: 'Definir posta médica, insumos y cobertura', status: 'progress', responsible: 'Jael Florentin' },
     ],
   },
   {
@@ -77,7 +77,7 @@ export const areas: Area[] = [
     name: 'Tecnología',
     icon: '💻',
     objectives: [
-      { id: 'Tecnología-1', name: 'Definir necesidades tecnológicas y armar plan de implementación', status: 'pending' },
+      { id: 'Tecnología-1', name: 'Definir necesidades tecnológicas y armar plan de implementación', status: 'progress', responsible: 'Natanael Florentin' },
     ],
   },
 ];
