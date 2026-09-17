@@ -15,7 +15,6 @@ export const eventInfo: EventInfo = {
   locationConfirmed: false,
   date: 'Enero 2027',
   youthCount: 350,
-  leadersNote: 'Consejeros de 19 a 30 años (2 hombres y 2 mujeres por compañía)',
 };
 
 export const areas: Area[] = [
