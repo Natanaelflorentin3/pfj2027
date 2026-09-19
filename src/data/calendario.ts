@@ -1,9 +1,8 @@
 import { AgendaItem, DiaCalendario } from '../types';
 
 /**
- * Agenda hora por hora del Día 1, tal cual el Manual del Personal PFJ.
- * Para completar los demás días, pasame la tabla de ese día (foto o PDF)
- * y la cargo con el mismo formato.
+ * Agenda hora por hora de cada día, tal cual el Manual del Personal PFJ
+ * (páginas 6 a 10). El Día 0 no se carga porque no aplica a este sitio.
  */
 const agendaDia1: AgendaItem[] = [
   { hora: '7:30-8:20 h', descripcion: 'Desayuno del personal', consejeros: 'Asisten', coordinadoresAuxiliares: 'Asisten', coordinadores: 'Asisten', matrimonioDirector: 'Asisten' },
@@ -30,12 +29,113 @@ const agendaDia1: AgendaItem[] = [
   { hora: '22:30 h', descripcion: 'Reunión de coordinadores/coordinadores auxiliares', consejeros: '—', coordinadoresAuxiliares: 'Asisten', coordinadores: 'Dirigen', matrimonioDirector: 'Asisten, si lo desean' },
 ];
 
-/**
- * Los 5 días del PFJ. El resumen y la vestimenta salen del "Manual del
- * Personal PFJ" (agenda recomendada). Completá "fecha" cuando la sepan
- * confirmada, y "pdf" con la ruta del archivo una vez que lo subas a
- * public/files/ (ver README). Ejemplo: pdf: '/files/dia-1.pdf'
- */
+const agendaDia2: AgendaItem[] = [
+  { hora: '7:00-7:10 h', descripcion: 'Reunión de coordinadores auxiliares/consejeros', consejeros: 'Asisten', coordinadoresAuxiliares: 'Dirigen', coordinadores: '—', matrimonioDirector: '—' },
+  { hora: '7:15-7:30 h', descripcion: 'Devocional matutino para participantes', consejeros: 'Dirigen', coordinadoresAuxiliares: 'Asisten, si lo desean', coordinadores: '—', matrimonioDirector: '—' },
+  { hora: '7:30-8:30 h', descripcion: 'Desayuno', consejeros: 'Asisten', coordinadoresAuxiliares: 'Supervisan, si se les asigna', coordinadores: 'Asisten', matrimonioDirector: 'Asisten' },
+  { hora: '8:30-9:30 h', descripcion: 'Estudio del Evangelio', consejeros: 'Dirigen', coordinadoresAuxiliares: 'Asisten, si lo desean', coordinadores: 'Asisten, si lo desean', matrimonioDirector: 'Asisten, si lo desean' },
+  { hora: '8:45-9:15 h', descripcion: 'Reunión del matrimonio director de sesión/maestros', consejeros: '—', coordinadoresAuxiliares: '—', coordinadores: '—', matrimonioDirector: 'Dirigen' },
+  { hora: '9:45-10:30 h', descripcion: 'Devocional matutino con el matrimonio director de sesión', consejeros: 'Asisten', coordinadoresAuxiliares: 'Asisten', coordinadores: 'Dirigen', matrimonioDirector: 'Enseñan' },
+  { hora: '10:45-12:30 h', descripcion: 'Clases', consejeros: 'Ayudan, si se les asigna', coordinadoresAuxiliares: 'Supervisan, si se les asigna', coordinadores: 'Asisten', matrimonioDirector: 'Asisten' },
+  { hora: '12:30-13:30 h', descripcion: 'Almuerzo', consejeros: 'Asisten', coordinadoresAuxiliares: 'Supervisan, si se les asigna', coordinadores: 'Asisten', matrimonioDirector: 'Asisten' },
+  { hora: '12:30-13:30 h', descripcion: 'Ensayo del programa musical', consejeros: 'Ayudan, si se les asigna', coordinadoresAuxiliares: 'Supervisan, si se les asigna', coordinadores: 'Asisten, si lo desean', matrimonioDirector: 'Asisten, si lo desean' },
+  { hora: '13:30 h', descripcion: 'Recuento de personas | Reunirse con la compañía', consejeros: 'Dirigen', coordinadoresAuxiliares: 'Reciben', coordinadores: 'Reciben', matrimonioDirector: '—' },
+  { hora: '13:45-15:30 h', descripcion: 'Clases o actividades específicas de la sesión', consejeros: 'Ayudan, si se les asigna', coordinadoresAuxiliares: 'Supervisan, si se les asigna', coordinadores: 'Asisten', matrimonioDirector: 'Asisten' },
+  { hora: '13:50-14:30 h', descripcion: 'Reunión de coordinadores/coordinadores auxiliares', consejeros: '—', coordinadoresAuxiliares: 'Asisten', coordinadores: 'Dirigen', matrimonioDirector: 'Asisten, si lo desean' },
+  { hora: '15:30-16:30 h', descripcion: 'Tiempo libre de los participantes', consejeros: 'Supervisan, si se les asigna', coordinadoresAuxiliares: 'Supervisan, si se les asigna', coordinadores: 'Asisten, si pueden', matrimonioDirector: '—' },
+  { hora: '15:30-17:00 h', descripcion: 'Audiciones para el espectáculo de variedades', consejeros: 'Ayudan, si se les asigna', coordinadoresAuxiliares: 'Supervisan, si se les asigna', coordinadores: 'Asisten, si lo desean', matrimonioDirector: 'Asisten, si lo desean' },
+  { hora: '15:30-17:00 h', descripcion: 'Ensayo del programa musical', consejeros: 'Ayudan, si se les asigna', coordinadoresAuxiliares: 'Supervisan, si se les asigna', coordinadores: 'Asisten, si lo desean', matrimonioDirector: 'Asisten, si lo desean' },
+  { hora: '14:30-17:00 h', descripcion: 'Reunión de coordinadores auxiliares/consejeros', consejeros: 'Asisten', coordinadoresAuxiliares: 'Dirigen', coordinadores: 'Asisten, si pueden', matrimonioDirector: '—' },
+  { hora: '16:30-18:00 h', descripcion: 'Cena', consejeros: 'Asisten', coordinadoresAuxiliares: 'Supervisan, si se les asigna', coordinadores: 'Asisten', matrimonioDirector: 'Asisten' },
+  { hora: '18:00-18:30 h', descripcion: 'Preparación del estandarte y los versos cantados', consejeros: 'Dirigen', coordinadoresAuxiliares: 'Asisten, si se les asigna', coordinadores: 'Asisten, si pueden', matrimonioDirector: 'Asisten' },
+  { hora: '18:30-18:45 h', descripcion: 'Pautas para los bailes de FSY', consejeros: 'Ayudan, si se les asigna', coordinadoresAuxiliares: 'Supervisan, si se les asigna', coordinadores: '—', matrimonioDirector: '—' },
+  { hora: '18:45-20:45 h', descripcion: 'Baile', consejeros: 'Ayudan, si se les asigna', coordinadoresAuxiliares: 'Supervisan, si se les asigna', coordinadores: 'Ayudan, si se les asigna', matrimonioDirector: 'Ayudan, si se les asigna' },
+  { hora: '21:00 h', descripcion: 'Reúnete con tu compañía | Recuento de personas', consejeros: 'Dirigen', coordinadoresAuxiliares: 'Reciben', coordinadores: 'Reciben', matrimonioDirector: '—' },
+  { hora: '21:00-21:45 h', descripcion: 'Tiempo para meditar', consejeros: 'Supervisan', coordinadoresAuxiliares: '—', coordinadores: '—', matrimonioDirector: '—' },
+  { hora: '21:45-22:15 h', descripcion: 'Reflexiona y repasa', consejeros: 'Dirigen', coordinadoresAuxiliares: 'Asisten, si lo desean', coordinadores: 'Asisten, si lo desean', matrimonioDirector: 'Asisten, si lo desean' },
+  { hora: '22:30 h', descripcion: 'Apagar las luces', consejeros: 'Supervisan', coordinadoresAuxiliares: 'Ayudan', coordinadores: 'Ayudan', matrimonioDirector: '—' },
+  { hora: '22:30 h', descripcion: 'Reunión de coordinadores/coordinadores auxiliares', consejeros: '—', coordinadoresAuxiliares: 'Asisten', coordinadores: 'Dirigen', matrimonioDirector: 'Asisten, si lo desean' },
+];
+
+const agendaDia3: AgendaItem[] = [
+  { hora: '7:00-7:10 h', descripcion: 'Reunión de coordinadores auxiliares/consejeros', consejeros: 'Asisten', coordinadoresAuxiliares: 'Dirigen', coordinadores: '—', matrimonioDirector: '—' },
+  { hora: '7:15-7:30 h', descripcion: 'Devocional matutino para participantes', consejeros: 'Dirigen', coordinadoresAuxiliares: 'Asisten, si lo desean', coordinadores: '—', matrimonioDirector: '—' },
+  { hora: '7:30-8:30 h', descripcion: 'Desayuno', consejeros: 'Asisten', coordinadoresAuxiliares: 'Supervisan, si se les asigna', coordinadores: 'Asisten', matrimonioDirector: 'Asisten' },
+  { hora: '8:30-9:30 h', descripcion: 'Estudio del Evangelio', consejeros: 'Dirigen', coordinadoresAuxiliares: 'Asisten, si lo desean', coordinadores: 'Asisten, si lo desean', matrimonioDirector: 'Asisten, si lo desean' },
+  { hora: '9:45-10:30 h', descripcion: 'Devocional matutino con el matrimonio director de sesión', consejeros: 'Asisten', coordinadoresAuxiliares: 'Asisten', coordinadores: 'Dirigen', matrimonioDirector: 'Enseñan' },
+  { hora: '10:45-12:30 h', descripcion: 'Clases o actividad específica de sesión', consejeros: 'Ayudan, si se les asigna', coordinadoresAuxiliares: 'Supervisan, si se les asigna', coordinadores: 'Asisten', matrimonioDirector: 'Asisten' },
+  { hora: '12:30-13:30 h', descripcion: 'Almuerzo', consejeros: 'Asisten', coordinadoresAuxiliares: 'Supervisan, si se les asigna', coordinadores: 'Asisten, si lo desean', matrimonioDirector: 'Asisten, si lo desean' },
+  { hora: '12:30-13:30 h', descripcion: 'Ensayo del programa musical', consejeros: 'Ayudan, si se les asigna', coordinadoresAuxiliares: 'Supervisan, si se les asigna', coordinadores: 'Asisten, si lo desean', matrimonioDirector: 'Asisten, si lo desean' },
+  { hora: '13:30 h', descripcion: 'Recuento de personas | Reunirse con la compañía', consejeros: 'Dirigen', coordinadoresAuxiliares: 'Reciben', coordinadores: 'Reciben', matrimonioDirector: '—' },
+  { hora: '13:45-15:30 h', descripcion: 'Clases o actividades específicas de la sesión', consejeros: 'Ayudan, si se les asigna', coordinadoresAuxiliares: 'Supervisan, si se les asigna', coordinadores: 'Asisten', matrimonioDirector: 'Asisten' },
+  { hora: '13:50-14:30 h', descripcion: 'Reunión de coordinadores/coordinadores auxiliares', consejeros: '—', coordinadoresAuxiliares: 'Asisten', coordinadores: 'Dirigen', matrimonioDirector: 'Asisten, si lo desean' },
+  { hora: '15:30-16:30 h', descripcion: 'Tiempo libre de los participantes', consejeros: 'Ayudan, si se les asigna', coordinadoresAuxiliares: 'Supervisan, si se les asigna', coordinadores: 'Asisten, si pueden', matrimonioDirector: 'Asisten, si lo desean' },
+  { hora: '15:30-17:00 h', descripcion: 'Audiciones para el espectáculo de variedades', consejeros: 'Ayudan, si se les asigna', coordinadoresAuxiliares: 'Supervisan, si se les asigna', coordinadores: 'Asisten, si lo desean', matrimonioDirector: 'Asisten, si lo desean' },
+  { hora: '15:30-17:00 h', descripcion: 'Ensayo del programa musical', consejeros: 'Ayudan, si se les asigna', coordinadoresAuxiliares: 'Supervisan, si se les asigna', coordinadores: 'Asisten, si pueden', matrimonioDirector: 'Asisten, si lo desean' },
+  { hora: '14:30-17:00 h', descripcion: 'Reunión de coordinadores auxiliares/consejeros', consejeros: 'Asisten', coordinadoresAuxiliares: 'Dirigen', coordinadores: 'Asisten, si pueden', matrimonioDirector: 'Asisten' },
+  { hora: '16:30-18:00 h', descripcion: 'Cena', consejeros: 'Asisten', coordinadoresAuxiliares: 'Supervisan, si se les asigna', coordinadores: 'Asisten, si se les asigna', matrimonioDirector: 'Asisten' },
+  { hora: '18:00-18:30 h', descripcion: 'Preparación para la noche de juegos', consejeros: 'Dirigen', coordinadoresAuxiliares: 'Ayudan, si se les asigna', coordinadores: '—', matrimonioDirector: '—' },
+  { hora: '18:45-20:00 h', descripcion: 'Noche de juegos y competencia de versos cantados', consejeros: 'Ayudan, si se les asigna', coordinadoresAuxiliares: 'Supervisan, si se les asigna', coordinadores: 'Asisten', matrimonioDirector: 'Asisten, si lo desean' },
+  { hora: '20:15 h', descripcion: 'Reúnete con tu compañía | Recuento de personas', consejeros: 'Dirigen', coordinadoresAuxiliares: 'Reciben', coordinadores: 'Reciben', matrimonioDirector: '—' },
+  { hora: '20:15-21:00 h', descripcion: 'Noche de comida favorita', consejeros: 'Dirigen', coordinadoresAuxiliares: 'Supervisan, si se les asigna', coordinadores: 'Asisten, si lo desean', matrimonioDirector: 'Asisten, si lo desean' },
+  { hora: '21:00-21:45 h', descripcion: 'Tiempo para meditar', consejeros: 'Supervisan', coordinadoresAuxiliares: '—', coordinadores: '—', matrimonioDirector: '—' },
+  { hora: '21:45-22:15 h', descripcion: 'Reflexiona y repasa', consejeros: 'Dirigen', coordinadoresAuxiliares: 'Asisten, si lo desean', coordinadores: 'Asisten, si lo desean', matrimonioDirector: 'Asisten, si lo desean' },
+  { hora: '22:30 h', descripcion: 'Apagar las luces', consejeros: 'Supervisan', coordinadoresAuxiliares: 'Ayudan', coordinadores: 'Ayudan', matrimonioDirector: '—' },
+  { hora: '22:30 h', descripcion: 'Reunión de coordinadores/coordinadores auxiliares', consejeros: '—', coordinadoresAuxiliares: 'Asisten', coordinadores: 'Dirigen', matrimonioDirector: 'Asisten, si lo desean' },
+];
+
+const agendaDia4: AgendaItem[] = [
+  { hora: '7:00-7:10 h', descripcion: 'Reunión de coordinadores auxiliares/consejeros', consejeros: 'Asisten', coordinadoresAuxiliares: 'Dirigen', coordinadores: '—', matrimonioDirector: '—' },
+  { hora: '7:15-7:30 h', descripcion: 'Devocional matutino para participantes', consejeros: 'Dirigen', coordinadoresAuxiliares: 'Asisten, si lo desean', coordinadores: '—', matrimonioDirector: '—' },
+  { hora: '7:30-8:30 h', descripcion: 'Desayuno', consejeros: 'Asisten', coordinadoresAuxiliares: 'Supervisan, si se les asigna', coordinadores: 'Asisten', matrimonioDirector: 'Asisten' },
+  { hora: '8:30-9:30 h', descripcion: 'Estudio del Evangelio', consejeros: 'Dirigen', coordinadoresAuxiliares: 'Asisten, si lo desean', coordinadores: 'Asisten, si lo desean', matrimonioDirector: 'Asisten, si lo desean' },
+  { hora: '9:45-12:30 h', descripcion: 'Devocionales de los Hombres Jóvenes y las Mujeres Jóvenes', consejeros: 'Asisten', coordinadoresAuxiliares: 'Asisten', coordinadores: 'Dirigen', matrimonioDirector: 'Enseñan' },
+  { hora: '9:45-12:30 h', descripcion: 'Actividades de los Hombres Jóvenes y las Mujeres Jóvenes', consejeros: 'Dirigen', coordinadoresAuxiliares: 'Asisten, si se les asigna', coordinadores: 'Asisten', matrimonioDirector: 'Asisten' },
+  { hora: '12:30-13:30 h', descripcion: 'Almuerzo', consejeros: 'Asisten', coordinadoresAuxiliares: 'Supervisan, si se les asigna', coordinadores: 'Asisten', matrimonioDirector: 'Asisten' },
+  { hora: '12:30-13:45 h', descripcion: 'Ensayo general del espectáculo de variedades', consejeros: 'Ayudan, si se les asigna', coordinadoresAuxiliares: 'Supervisan, si se les asigna', coordinadores: 'Ayudan, si se les asigna', matrimonioDirector: '—' },
+  { hora: '12:30-13:30 h', descripcion: 'Ensayo del programa musical', consejeros: 'Ayudan, si se les asigna', coordinadoresAuxiliares: 'Supervisan, si se les asigna', coordinadores: 'Asisten, si lo desean', matrimonioDirector: 'Asisten, si lo desean' },
+  { hora: '13:30 h', descripcion: 'Recuento de personas | Reunirse con la compañía', consejeros: 'Dirigen', coordinadoresAuxiliares: 'Reciben', coordinadores: 'Reciben', matrimonioDirector: '—' },
+  { hora: '13:45-14:00 h', descripcion: 'Pautas para el espectáculo de variedades', consejeros: 'Ayudan, si se les asigna', coordinadoresAuxiliares: 'Supervisan, si se les asigna', coordinadores: 'Asisten', matrimonioDirector: 'Asisten' },
+  { hora: '14:15-15:30 h', descripcion: 'Espectáculo de variedades', consejeros: 'Ayudan, si se les asigna', coordinadoresAuxiliares: 'Supervisan, si se les asigna', coordinadores: 'Asisten, si pueden', matrimonioDirector: 'Asisten, si lo desean' },
+  { hora: '15:30-16:30 h', descripcion: 'Tiempo libre de los participantes', consejeros: 'Ayudan, si se les asigna', coordinadoresAuxiliares: 'Supervisan, si se les asigna', coordinadores: 'Asisten, si lo desean', matrimonioDirector: 'Asisten, si lo desean' },
+  { hora: '15:30-17:00 h', descripcion: 'Ensayo general del programa musical', consejeros: 'Ayudan, si se les asigna', coordinadoresAuxiliares: 'Supervisan, si se les asigna', coordinadores: 'Asisten, si lo desean', matrimonioDirector: 'Asisten, si lo desean' },
+  { hora: '15:30-16:00 h', descripcion: 'Reunión de coordinadores/coordinadores auxiliares', consejeros: '—', coordinadoresAuxiliares: 'Asisten', coordinadores: 'Dirigen', matrimonioDirector: 'Asisten, si lo desean' },
+  { hora: '16:30-17:50 h', descripcion: 'Cena', consejeros: 'Asisten', coordinadoresAuxiliares: 'Supervisan, si se les asigna', coordinadores: 'Asisten', matrimonioDirector: 'Asisten' },
+  { hora: '17:50-18:05 h', descripcion: 'Análisis sobre la reverencia y el testimonio', consejeros: 'Dirigen', coordinadoresAuxiliares: '—', coordinadores: '—', matrimonioDirector: '—' },
+  { hora: '18:20-19:40 h', descripcion: 'Programa musical y devocional vespertino', consejeros: 'Asisten', coordinadoresAuxiliares: 'Supervisan, si se les asigna', coordinadores: 'Dirigen', matrimonioDirector: 'Enseñan' },
+  { hora: '19:50-20:50 h', descripcion: 'Reuniones de testimonios', consejeros: 'Dirigen', coordinadoresAuxiliares: 'Asisten, si pueden', coordinadores: 'Asisten, si pueden', matrimonioDirector: 'Asisten, si pueden' },
+  { hora: '21:00 h', descripcion: 'Reúnete con tu compañía | Recuento de personas', consejeros: 'Dirigen', coordinadoresAuxiliares: 'Reciben', coordinadores: 'Reciben', matrimonioDirector: '—' },
+  { hora: '21:00-21:45 h', descripcion: 'Tiempo para meditar', consejeros: 'Supervisan', coordinadoresAuxiliares: '—', coordinadores: '—', matrimonioDirector: '—' },
+  { hora: '21:45-22:15 h', descripcion: 'Reflexiona y repasa', consejeros: 'Dirigen', coordinadoresAuxiliares: 'Asisten, si lo desean', coordinadores: 'Asisten, si lo desean', matrimonioDirector: 'Asisten, si lo desean' },
+  { hora: '22:30 h', descripcion: 'Apagar las luces', consejeros: 'Supervisan', coordinadoresAuxiliares: 'Ayudan', coordinadores: 'Ayudan', matrimonioDirector: '—' },
+  { hora: '22:30 h', descripcion: 'Reunión de coordinadores/coordinadores auxiliares', consejeros: '—', coordinadoresAuxiliares: 'Asisten', coordinadores: 'Dirigen', matrimonioDirector: 'Asisten, si lo desean' },
+];
+
+const agendaDia5: AgendaItem[] = [
+  { hora: '7:00-7:10 h', descripcion: 'Reunión de coordinadores auxiliares/consejeros', consejeros: 'Asisten', coordinadoresAuxiliares: 'Dirigen', coordinadores: '—', matrimonioDirector: '—' },
+  { hora: '7:15-7:30 h', descripcion: 'Devocional matutino para participantes', consejeros: 'Dirigen', coordinadoresAuxiliares: 'Asisten, si lo desean', coordinadores: '—', matrimonioDirector: '—' },
+  { hora: '7:30-8:30 h', descripcion: 'Desayuno', consejeros: 'Asisten', coordinadoresAuxiliares: 'Supervisan, si se les asigna', coordinadores: 'Asisten', matrimonioDirector: 'Asisten' },
+  { hora: '8:30-9:30 h', descripcion: 'Estudio del Evangelio', consejeros: 'Dirigen', coordinadoresAuxiliares: 'Asisten, si lo desean', coordinadores: 'Asisten, si lo desean', matrimonioDirector: 'Asisten, si lo desean' },
+  { hora: '9:30-10:00 h', descripcion: 'Repaso del establecimiento de metas', consejeros: 'Dirigen', coordinadoresAuxiliares: 'Asisten, si lo desean', coordinadores: 'Asisten, si lo desean', matrimonioDirector: 'Asisten, si lo desean' },
+  { hora: '10:15-11:00 h', descripcion: 'Devocional matutino con el matrimonio director de sesión', consejeros: 'Asisten', coordinadoresAuxiliares: 'Asisten', coordinadores: 'Dirigen', matrimonioDirector: 'Enseñan' },
+  { hora: '11:15-12:30 h', descripcion: 'Actividad de la Guía Para la Fortaleza de la Juventud', consejeros: 'Enseñan', coordinadoresAuxiliares: 'Dirigen', coordinadores: 'Asisten, si lo desean', matrimonioDirector: 'Asisten, si lo desean' },
+  { hora: '12:30-13:30 h', descripcion: 'Almuerzo', consejeros: 'Asisten', coordinadoresAuxiliares: 'Supervisan, si se les asigna', coordinadores: 'Asisten', matrimonioDirector: 'Asisten' },
+  { hora: '13:30 h', descripcion: 'Recuento de personas | Reunirse con la compañía', consejeros: 'Dirigen', coordinadoresAuxiliares: 'Reciben', coordinadores: 'Reciben', matrimonioDirector: '—' },
+  { hora: '13:45-15:00 h', descripcion: 'Actividad Vivir el Evangelio', consejeros: 'Enseñan', coordinadoresAuxiliares: 'Supervisan, si se les asigna', coordinadores: 'Asisten, si lo desean', matrimonioDirector: 'Asisten, si lo desean' },
+  { hora: '15:00-15:15 h', descripcion: 'Presentación de diapositivas', consejeros: 'Asisten', coordinadoresAuxiliares: 'Supervisan, si se les asigna', coordinadores: 'Asisten', matrimonioDirector: 'Asisten, si lo desean' },
+  { hora: '15:15-16:30 h', descripcion: 'Tiempo libre de los participantes', consejeros: 'Ayudan, si se les asigna', coordinadoresAuxiliares: 'Supervisan, si se les asigna', coordinadores: 'Asisten, si pueden', matrimonioDirector: 'Asisten' },
+  { hora: '16:30-18:00 h', descripcion: 'Cena', consejeros: 'Asisten', coordinadoresAuxiliares: 'Supervisan, si se les asigna', coordinadores: 'Asisten', matrimonioDirector: 'Asisten' },
+  { hora: '18:00-18:15 h', descripcion: 'Toma de fotografías', consejeros: 'Dirigen', coordinadoresAuxiliares: '—', coordinadores: '—', matrimonioDirector: '—' },
+  { hora: '18:15-20:00 h', descripcion: 'Baile', consejeros: 'Ayudan, si se les asigna', coordinadoresAuxiliares: 'Supervisan, si se les asigna', coordinadores: 'Ayudan, si se les asigna', matrimonioDirector: 'Ayudan, si se les asigna' },
+  { hora: '20:15-20:45 h', descripcion: 'Mensaje "Llévatelo a casa"', consejeros: 'Asisten', coordinadoresAuxiliares: 'Asisten', coordinadores: 'Dirigen', matrimonioDirector: 'Enseñan' },
+  { hora: '21:00-21:30 h', descripcion: 'Mensaje "Llévatelo a casa" de la compañía', consejeros: 'Dirigen', coordinadoresAuxiliares: 'Asisten, si lo desean', coordinadores: 'Asisten, si lo desean', matrimonioDirector: 'Asisten, si lo desean' },
+  { hora: '21:45 h', descripcion: 'Reúnete con tu compañía | Recuento de personas', consejeros: 'Dirigen', coordinadoresAuxiliares: 'Reciben', coordinadores: 'Reciben', matrimonioDirector: '—' },
+  { hora: '21:45-22:25 h', descripcion: 'Tiempo para meditar', consejeros: 'Supervisan', coordinadoresAuxiliares: '—', coordinadores: '—', matrimonioDirector: '—' },
+  { hora: '22:25 h', descripcion: 'Oración', consejeros: 'Dirigen', coordinadoresAuxiliares: '—', coordinadores: '—', matrimonioDirector: '—' },
+  { hora: '22:30 h', descripcion: 'Apagar las luces/Guardia nocturna', consejeros: 'Supervisan', coordinadoresAuxiliares: 'Ayudan', coordinadores: 'Ayudan', matrimonioDirector: '—' },
+  { hora: '22:30 h', descripcion: 'Reunión de coordinadores/coordinadores auxiliares', consejeros: '—', coordinadoresAuxiliares: 'Asisten', coordinadores: 'Dirigen', matrimonioDirector: 'Asisten, si lo desean' },
+];
+
 export const diasCalendario: DiaCalendario[] = [
   {
     id: 'dia-1',
@@ -43,12 +143,6 @@ export const diasCalendario: DiaCalendario[] = [
     fecha: undefined,
     resumen: 'Llegada de los participantes, armado de compañías, orientación general y noche de hogar.',
     vestimenta: 'Camiseta del personal de FSY',
-    actividades: [
-      'Llegada y acreditación de los participantes',
-      'Armado de compañías (grupos con sus consejeros)',
-      'Orientación general y presentación de normas del PFJ',
-      'Noche de hogar',
-    ],
     agenda: agendaDia1,
     pdf: null,
   },
@@ -58,13 +152,7 @@ export const diasCalendario: DiaCalendario[] = [
     fecha: undefined,
     resumen: 'Estudio del Evangelio, clases, ensayo del programa musical, preparación del estandarte y baile de FSY.',
     vestimenta: 'Camiseta del personal de FSY',
-    actividades: [
-      'Estudio del Evangelio en compañías',
-      'Clases y actividades formativas',
-      'Ensayo del programa musical',
-      'Preparación del estandarte de la compañía',
-      'Baile de FSY',
-    ],
+    agenda: agendaDia2,
     pdf: null,
   },
   {
@@ -73,13 +161,7 @@ export const diasCalendario: DiaCalendario[] = [
     fecha: undefined,
     resumen: 'Estudio del Evangelio, clases, ensayo del programa musical, noche de juegos y noche de comida favorita.',
     vestimenta: 'Camiseta del personal de FSY',
-    actividades: [
-      'Estudio del Evangelio en compañías',
-      'Clases y actividades formativas',
-      'Ensayo del programa musical',
-      'Noche de juegos',
-      'Noche de la comida favorita',
-    ],
+    agenda: agendaDia3,
     pdf: null,
   },
   {
@@ -88,13 +170,7 @@ export const diasCalendario: DiaCalendario[] = [
     fecha: undefined,
     resumen: 'Devocionales separados de Jóvenes y Señoritas, espectáculo de variedades, programa musical vespertino y reunión de testimonios.',
     vestimenta: 'Ropa de domingo',
-    actividades: [
-      'Devocional separado de Jóvenes',
-      'Devocional separado de Señoritas',
-      'Espectáculo de variedades',
-      'Programa musical vespertino',
-      'Reunión de testimonios',
-    ],
+    agenda: agendaDia4,
     pdf: null,
   },
   {
@@ -103,13 +179,7 @@ export const diasCalendario: DiaCalendario[] = [
     fecha: undefined,
     resumen: 'Repaso del establecimiento de metas, actividad de la Guía Para la Fortaleza de la Juventud, presentación de fotos, baile y mensaje final "Llévatelo a casa".',
     vestimenta: 'Camiseta del personal de FSY',
-    actividades: [
-      'Repaso del establecimiento de metas',
-      'Actividad de la Guía Para la Fortaleza de la Juventud',
-      'Presentación de fotos del PFJ',
-      'Baile final',
-      'Mensaje final: "Llévatelo a casa"',
-    ],
+    agenda: agendaDia5,
     pdf: null,
   },
 ];
