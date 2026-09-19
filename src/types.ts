@@ -45,6 +45,8 @@ export interface DiaCalendario {
   fecha?: string;
   /** Resumen corto de lo que pasa ese día (opcional, además del PDF) */
   resumen?: string;
+  /** Vestimenta del día según el Manual del Personal, ej: "Camiseta del personal de FSY" */
+  vestimenta?: string;
   /** Ruta del PDF con las actividades del día, ej: "/pdfs/dia-1.pdf". null = todavía no se subió. */
   pdf: string | null;
 }

@@ -20,6 +20,7 @@ function renderDia(dia: DiaCalendario): string {
         <span class="day-date">${dia.fecha ? escapeHtml(dia.fecha) : 'Fecha a confirmar'}</span>
       </div>
       ${dia.resumen ? `<p class="day-summary">${escapeHtml(dia.resumen)}</p>` : ''}
+      ${dia.vestimenta ? `<span class="day-tag">👕 ${escapeHtml(dia.vestimenta)}</span>` : ''}
       ${pdfBlock}
     </div>`;
 }
