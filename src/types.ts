@@ -47,6 +47,8 @@ export interface DiaCalendario {
   resumen?: string;
   /** Vestimenta del día según el Manual del Personal, ej: "Camiseta del personal de FSY" */
   vestimenta?: string;
+  /** Lista detallada de actividades del día, para el desplegable "Ver todas las actividades" */
+  actividades?: string[];
   /** Ruta del PDF con las actividades del día, ej: "/pdfs/dia-1.pdf". null = todavía no se subió. */
   pdf: string | null;
 }

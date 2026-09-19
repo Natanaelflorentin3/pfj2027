@@ -513,6 +513,41 @@
   font-weight: 600;
 }
 
+.day-details {
+  margin-top: -2px;
+}
+
+.day-details-toggle {
+  cursor: pointer;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--color-blue);
+  list-style: none;
+  user-select: none;
+}
+
+.day-details-toggle::-webkit-details-marker {
+  display: none;
+}
+
+.day-details-toggle::after {
+  content: ' ▾';
+}
+
+.day-details[open] .day-details-toggle::after {
+  content: ' ▴';
+}
+
+.day-activities {
+  margin: 8px 0 0;
+  padding-left: 18px;
+  font-size: 13px;
+  color: var(--color-text);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
 .pdf-btn {
   display: inline-flex;
   align-items: center;

@@ -13,6 +13,12 @@ export const diasCalendario: DiaCalendario[] = [
     fecha: undefined,
     resumen: 'Llegada de los participantes, armado de compañías, orientación general y noche de hogar.',
     vestimenta: 'Camiseta del personal de FSY',
+    actividades: [
+      'Llegada y acreditación de los participantes',
+      'Armado de compañías (grupos con sus consejeros)',
+      'Orientación general y presentación de normas del PFJ',
+      'Noche de hogar',
+    ],
     pdf: null,
   },
   {
@@ -21,6 +27,13 @@ export const diasCalendario: DiaCalendario[] = [
     fecha: undefined,
     resumen: 'Estudio del Evangelio, clases, ensayo del programa musical, preparación del estandarte y baile de FSY.',
     vestimenta: 'Camiseta del personal de FSY',
+    actividades: [
+      'Estudio del Evangelio en compañías',
+      'Clases y actividades formativas',
+      'Ensayo del programa musical',
+      'Preparación del estandarte de la compañía',
+      'Baile de FSY',
+    ],
     pdf: null,
   },
   {
@@ -29,6 +42,13 @@ export const diasCalendario: DiaCalendario[] = [
     fecha: undefined,
     resumen: 'Estudio del Evangelio, clases, ensayo del programa musical, noche de juegos y noche de comida favorita.',
     vestimenta: 'Camiseta del personal de FSY',
+    actividades: [
+      'Estudio del Evangelio en compañías',
+      'Clases y actividades formativas',
+      'Ensayo del programa musical',
+      'Noche de juegos',
+      'Noche de la comida favorita',
+    ],
     pdf: null,
   },
   {
@@ -37,6 +57,13 @@ export const diasCalendario: DiaCalendario[] = [
     fecha: undefined,
     resumen: 'Devocionales separados de Jóvenes y Señoritas, espectáculo de variedades, programa musical vespertino y reunión de testimonios.',
     vestimenta: 'Ropa de domingo',
+    actividades: [
+      'Devocional separado de Jóvenes',
+      'Devocional separado de Señoritas',
+      'Espectáculo de variedades',
+      'Programa musical vespertino',
+      'Reunión de testimonios',
+    ],
     pdf: null,
   },
   {
@@ -45,6 +72,13 @@ export const diasCalendario: DiaCalendario[] = [
     fecha: undefined,
     resumen: 'Repaso del establecimiento de metas, actividad de la Guía Para la Fortaleza de la Juventud, presentación de fotos, baile y mensaje final "Llévatelo a casa".',
     vestimenta: 'Camiseta del personal de FSY',
+    actividades: [
+      'Repaso del establecimiento de metas',
+      'Actividad de la Guía Para la Fortaleza de la Juventud',
+      'Presentación de fotos del PFJ',
+      'Baile final',
+      'Mensaje final: "Llévatelo a casa"',
+    ],
     pdf: null,
   },
 ];

@@ -13,6 +13,16 @@ function renderDia(dia: DiaCalendario): string {
     ? `<a class="pdf-btn" href="${dia.pdf}" target="_blank" rel="noopener">📄 Ver actividades del día</a>`
     : `<span class="pdf-btn pdf-btn--pending">📄 PDF pendiente de subir</span>`;
 
+  const actividadesBlock = dia.actividades && dia.actividades.length
+    ? `
+      <details class="day-details">
+        <summary class="day-details-toggle">Ver todas las actividades</summary>
+        <ul class="day-activities">
+          ${dia.actividades.map((a) => `<li>${escapeHtml(a)}</li>`).join('')}
+        </ul>
+      </details>`
+    : '';
+
   return `
     <div class="day-card">
       <div class="day-card-head">
@@ -21,6 +31,7 @@ function renderDia(dia: DiaCalendario): string {
       </div>
       ${dia.resumen ? `<p class="day-summary">${escapeHtml(dia.resumen)}</p>` : ''}
       ${dia.vestimenta ? `<span class="day-tag">👕 ${escapeHtml(dia.vestimenta)}</span>` : ''}
+      ${actividadesBlock}
       ${pdfBlock}
     </div>`;
 }
