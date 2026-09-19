@@ -460,9 +460,9 @@
 /* ---------- Calendario semanal ---------- */
 
 .calendar-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
   margin-top: 28px;
 }
 
@@ -546,6 +546,41 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
+}
+
+/* ---------- Agenda completa del día (tabla hora por hora) ---------- */
+
+.agenda-table-wrap {
+  margin-top: 12px;
+}
+
+.table--agenda th,
+.table--agenda td {
+  white-space: normal;
+  vertical-align: top;
+  font-size: 13px;
+  padding: 10px 12px;
+}
+
+.table--agenda th:first-child,
+.table--agenda td:first-child {
+  min-width: 200px;
+}
+
+.table--agenda td:not(:first-child) {
+  color: var(--color-text-muted);
+}
+
+.agenda-time {
+  display: block;
+  font-weight: 700;
+  color: var(--color-navy);
+  font-size: 12.5px;
+}
+
+.agenda-desc {
+  display: block;
+  color: var(--color-text);
 }
 
 .pdf-btn {

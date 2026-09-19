@@ -1,4 +1,4 @@
-import { DiaCalendario } from '../types';
+import { AgendaItem, DiaCalendario } from '../types';
 
 function escapeHtml(input: string | number): string {
   return String(input)
@@ -8,12 +8,52 @@ function escapeHtml(input: string | number): string {
     .replace(/"/g, '&quot;');
 }
 
+function renderAgendaTable(agenda: AgendaItem[]): string {
+  const filas = agenda
+    .map(
+      (item) => `
+        <tr>
+          <td>
+            <span class="agenda-time">${escapeHtml(item.hora)}</span>
+            <span class="agenda-desc">${escapeHtml(item.descripcion)}</span>
+          </td>
+          <td>${escapeHtml(item.consejeros)}</td>
+          <td>${escapeHtml(item.coordinadoresAuxiliares)}</td>
+          <td>${escapeHtml(item.coordinadores)}</td>
+          <td>${escapeHtml(item.matrimonioDirector)}</td>
+        </tr>`
+    )
+    .join('');
+
+  return `
+    <div class="table-wrap agenda-table-wrap">
+      <table class="table table--agenda">
+        <thead>
+          <tr>
+            <th>Hora, descripción de la reunión</th>
+            <th>Consejeros</th>
+            <th>Coordinadores auxiliares</th>
+            <th>Coordinadores</th>
+            <th>Matrimonio director de sesión</th>
+          </tr>
+        </thead>
+        <tbody>${filas}</tbody>
+      </table>
+    </div>`;
+}
+
 function renderDia(dia: DiaCalendario): string {
   const pdfBlock = dia.pdf
     ? `<a class="pdf-btn" href="${dia.pdf}" target="_blank" rel="noopener">📄 Ver actividades del día</a>`
     : `<span class="pdf-btn pdf-btn--pending">📄 PDF pendiente de subir</span>`;
 
-  const actividadesBlock = dia.actividades && dia.actividades.length
+  const detalleBlock = dia.agenda && dia.agenda.length
+    ? `
+      <details class="day-details">
+        <summary class="day-details-toggle">Ver agenda completa del día</summary>
+        ${renderAgendaTable(dia.agenda)}
+      </details>`
+    : dia.actividades && dia.actividades.length
     ? `
       <details class="day-details">
         <summary class="day-details-toggle">Ver todas las actividades</summary>
@@ -31,7 +71,7 @@ function renderDia(dia: DiaCalendario): string {
       </div>
       ${dia.resumen ? `<p class="day-summary">${escapeHtml(dia.resumen)}</p>` : ''}
       ${dia.vestimenta ? `<span class="day-tag">👕 ${escapeHtml(dia.vestimenta)}</span>` : ''}
-      ${actividadesBlock}
+      ${detalleBlock}
       ${pdfBlock}
     </div>`;
 }

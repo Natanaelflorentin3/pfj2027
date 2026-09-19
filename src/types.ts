@@ -47,10 +47,23 @@ export interface DiaCalendario {
   resumen?: string;
   /** Vestimenta del día según el Manual del Personal, ej: "Camiseta del personal de FSY" */
   vestimenta?: string;
-  /** Lista detallada de actividades del día, para el desplegable "Ver todas las actividades" */
+  /** Lista detallada de actividades del día (fallback simple si todavía no hay "agenda" completa) */
   actividades?: string[];
+  /** Agenda hora por hora del día, tal cual el Manual del Personal PFJ. Si está presente, se muestra esta tabla en vez de "actividades". */
+  agenda?: AgendaItem[];
   /** Ruta del PDF con las actividades del día, ej: "/pdfs/dia-1.pdf". null = todavía no se subió. */
   pdf: string | null;
+}
+
+/** Una fila de la agenda hora por hora de un día del PFJ (Manual del Personal). */
+export interface AgendaItem {
+  /** Ej: "7:30-8:20 h" */
+  hora: string;
+  descripcion: string;
+  consejeros: string;
+  coordinadoresAuxiliares: string;
+  coordinadores: string;
+  matrimonioDirector: string;
 }
 
 export type EstadoConsejero = 'confirmado' | 'a-confirmar';
