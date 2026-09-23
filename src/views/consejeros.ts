@@ -16,9 +16,13 @@ const ESTADO_LABEL: Record<string, string> = {
 function renderFila(c: Consejero): string {
   return `
     <tr>
-      <td>${escapeHtml(c.apellido)}, ${escapeHtml(c.nombre)}</td>
+      <td>
+        <div class="consejero-name">${escapeHtml(c.apellido)}, ${escapeHtml(c.nombre)}</div>
+        ${c.rol ? `<span class="rol-badge">${escapeHtml(c.rol)}</span>` : ''}
+      </td>
       <td>${escapeHtml(c.genero)}</td>
       <td>${escapeHtml(c.barrio)}</td>
+      <td>${c.estaca ? escapeHtml(c.estaca) : '—'}</td>
       <td><span class="status status--${c.estado === 'confirmado' ? 'done' : 'pending'}">${ESTADO_LABEL[c.estado]}</span></td>
     </tr>`;
 }
@@ -36,6 +40,7 @@ export function renderConsejeros(consejeros: Consejero[]): string {
               <th>Consejero</th>
               <th>Género</th>
                <th>Barrio</th>
+              <th>Estaca</th>
               <th>Estado</th>
             </tr>
           </thead>

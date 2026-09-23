@@ -75,6 +75,10 @@ export interface Consejero {
   genero: 'Masculino' | 'Femenino';
   estado: EstadoConsejero;
   barrio: string;
+  /** Estaca a la que pertenece. Ej: "San Nicolás". Opcional hasta confirmar. */
+  estaca?: string;
+  /** Rol especial dentro del personal, ej: "Consejera coordinadora de sesión". La mayoría no tiene uno. */
+  rol?: string;
 }
 
 export type EstadoParticipante = 'aprobado' | 'pendiente';
