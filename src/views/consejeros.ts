@@ -67,7 +67,7 @@ export function renderConsejeros(consejeros: Consejero[]): string {
     <div class="wrap">
       <p class="eyebrow">Logística · Consejeros</p>
       <h1>Consejeros que asisten</h1>
-      <p class="subtitle">Jóvenes adultos de 19 a 30 años ?.</p>
+      <p class="subtitle">JAS (jóvenes adultos solteros) de 19 a 30 años, a cargo de las compañías — grupos de 12 a 18 jóvenes de 14 a 18 años.</p>
     </div>
   </header>
 
