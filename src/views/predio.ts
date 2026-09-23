@@ -68,7 +68,7 @@ export function renderPredio(model: PredioPageModel): string {
 
     <div class="banner banner--warn">
       <span class="dot"></span>
-      <p><strong>Ojo con la capacidad:</strong> el comedor (el espacio más grande) entra ~200 personas, pero entre jóvenes y personal somos ~250 en total. Sumado a que el gimnasio tiene mucho eco y los salones no tienen aire acondicionado (en enero, con ~40°C, es un problema real), hay que definir bien qué actividades se hacen todos juntos y cuáles conviene dividir en compañías o por franjas horarias.</p>
+      <p><strong>Cuidado de momento con la capacidad:</strong> el comedor (el espacio más grande) entra ~200 personas, pero entre jóvenes y personal somos ~250 en total. Sumado a que el gimnasio tiene mucho eco y los salones no tienen aire acondicionado (en enero, con ~40°C, es un problema real), hay que definir bien qué actividades se hacen todos juntos y cuáles conviene dividir en compañías o por franjas horarias.</p>
     </div>
 
     <section style="margin-top:28px;">

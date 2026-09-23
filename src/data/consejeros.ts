@@ -10,8 +10,8 @@ import { Consejero } from '../types';
  * como "Consejero/a coordinador/a de sesión".
  */
 export const consejeros: Consejero[] = [
-  { id: '1', nombre: 'Juan', apellido: 'Pérez', genero: 'Masculino', estado: 'confirmado', barrio: 'San martin' },
-  { id: '2', nombre: 'María', apellido: 'Gómez', genero: 'Femenino', estado: 'a-confirmar' , barrio: 'Saladillo'},
+  //{ id: '1', nombre: 'Juan', apellido: 'Pérez', genero: 'Masculino', estado: 'confirmado', barrio: 'San martin' },
+  //{ id: '2', nombre: 'María', apellido: 'Gómez', genero: 'Femenino', estado: 'a-confirmar' , barrio: 'Saladillo'},
   {
     id: 'agustina-altamirano',
     nombre: 'Agustina',
