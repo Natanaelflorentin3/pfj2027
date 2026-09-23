@@ -1,5 +1,6 @@
 import 'dotenv/config';
 import express from 'express';
+import fs from 'fs';
 import path from 'path';
 import { areas, eventInfo } from './data/objectives';
 import { diasCalendario } from './data/calendario';
@@ -22,6 +23,22 @@ const app = express();
 const PORT = Number(process.env.PORT) || 3000;
 const DB_DISPONIBLE = Boolean(process.env.DATABASE_URL);
 
+/**
+ * "Última actualización" se calcula sola: toma la fecha en que se generó
+ * el build (dist/data/objectives.js), que cambia cada vez que hacés un
+ * deploy con cambios. Así no hay que editar una fecha a mano nunca más.
+ */
+function getLastUpdated(): string {
+  try {
+    const stats = fs.statSync(path.join(__dirname, 'data', 'objectives.js'));
+    return stats.mtime.toLocaleDateString('es-AR', { day: 'numeric', month: 'long', year: 'numeric' });
+  } catch {
+    return 'fecha desconocida';
+  }
+}
+
+const lastUpdated = getLastUpdated();
+
 // Archivos estáticos (CSS, JS del cliente, PDFs)
 app.use(express.static(path.join(__dirname, '../public')));
 // Para poder leer los campos del formulario de comentarios
@@ -36,8 +53,7 @@ app.get('/', (_req, res) => {
     bodyHtml: renderHome({
       eventInfo,
       areas,
-      // Actualizá esta fecha a mano cada vez que cambien los datos.
-      lastUpdated: '18 de septiembre de 2026',
+      lastUpdated,
     }),
   });
   res.send(html);
