@@ -73,7 +73,7 @@ export function renderPredio(model: PredioPageModel): string {
 
     <section style="margin-top:28px;">
       <p class="section-title">Espacios del predio</p>
-      <p class="section-sub">Vamos completando esto a medida que hagamos la recorrida. Para agregar o actualizar un espacio, editá <code>src/data/predio.ts</code>.</p>
+      <p class="section-sub">Vamos completando esto a medida que hagamos la recorrida. Para agregar o actualizar un espacio,tengo que editar --><code>src/data/predio.ts</code>.</p>
 
       <div class="predio-grid">
         ${espacios.map(renderEspacio).join('')}
