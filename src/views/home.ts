@@ -112,8 +112,7 @@ export function renderHome(model: HomeModel): string {
 
     <div class="banner">
       <span class="dot"></span>
-   <p><strong>Próximo hito:</strong> Reunion viernes 17/09/2026 con el staff completo , sede ? fecha ? y alcance..</p>
-     <p><strong>Próximo hito:</strong> a confirmar</p>
+      <p><strong>Próximo hito:</strong> El 27 de septiembre se abren las inscripciones — tanto para jóvenes como para JAS (jóvenes adultos solteros, varones y señoritas) — a través de la página de la iglesia.</p>
     </div>
 
     <section>
