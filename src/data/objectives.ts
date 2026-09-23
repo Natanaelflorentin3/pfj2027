@@ -13,7 +13,7 @@ export const eventInfo: EventInfo = {
   verse: 'Filipenses 4:4',
   location: 'Rosario, Argentina',
   locationConfirmed: false,
-  date: 'Enero 2027',
+  date: 'Del 4 al 8 de enero de 2027',
   youthCount: 200,
   totalCount: 250,
 };

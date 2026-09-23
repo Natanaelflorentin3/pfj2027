@@ -140,7 +140,7 @@ export const diasCalendario: DiaCalendario[] = [
   {
     id: 'dia-1',
     label: 'Día 1',
-    fecha: undefined,
+    fecha: 'Lunes 4 de enero',
     resumen: 'Llegada de los participantes, armado de compañías, orientación general y noche de hogar.',
     vestimenta: 'Camiseta del personal de FSY',
     agenda: agendaDia1,
@@ -149,7 +149,7 @@ export const diasCalendario: DiaCalendario[] = [
   {
     id: 'dia-2',
     label: 'Día 2',
-    fecha: undefined,
+    fecha: 'Martes 5 de enero',
     resumen: 'Estudio del Evangelio, clases, ensayo del programa musical, preparación del estandarte y baile de FSY.',
     vestimenta: 'Camiseta del personal de FSY',
     agenda: agendaDia2,
@@ -158,7 +158,7 @@ export const diasCalendario: DiaCalendario[] = [
   {
     id: 'dia-3',
     label: 'Día 3',
-    fecha: undefined,
+    fecha: 'Miércoles 6 de enero',
     resumen: 'Estudio del Evangelio, clases, ensayo del programa musical, noche de juegos y noche de comida favorita.',
     vestimenta: 'Camiseta del personal de FSY',
     agenda: agendaDia3,
@@ -167,7 +167,7 @@ export const diasCalendario: DiaCalendario[] = [
   {
     id: 'dia-4',
     label: 'Día 4',
-    fecha: undefined,
+    fecha: 'Jueves 7 de enero',
     resumen: 'Devocionales separados de Jóvenes y Señoritas, espectáculo de variedades, programa musical vespertino y reunión de testimonios.',
     vestimenta: 'Ropa de domingo',
     agenda: agendaDia4,
@@ -176,7 +176,7 @@ export const diasCalendario: DiaCalendario[] = [
   {
     id: 'dia-5',
     label: 'Día 5',
-    fecha: undefined,
+    fecha: 'Viernes 8 de enero',
     resumen: 'Repaso del establecimiento de metas, actividad de la Guía Para la Fortaleza de la Juventud, presentación de fotos, baile y mensaje final "Llévatelo a casa".',
     vestimenta: 'Camiseta del personal de FSY',
     agenda: agendaDia5,
