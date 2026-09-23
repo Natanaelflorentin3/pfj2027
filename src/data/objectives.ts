@@ -11,7 +11,7 @@ export const eventInfo: EventInfo = {
   title: 'PFJ 2027',
   motto: 'Regocíjate en Cristo',
   verse: 'Filipenses 4:4',
-  location: 'Liceo Aeronáutico Militar de Funes, Santa Fe',
+  location: 'Liceo Aeronáutico Militar de Funes',
   locationConfirmed: true,
   date: 'Del 4 al 8 de enero de 2027',
   youthCount: 200,
