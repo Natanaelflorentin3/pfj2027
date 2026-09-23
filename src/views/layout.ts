@@ -70,6 +70,7 @@ export function renderLayout(model: LayoutModel): string {
   ${renderNav(active)}
   ${bodyHtml}
   <script src="/js/theme.js" defer></script>
+  <script src="/js/table-filter.js" defer></script>
 </body>
 </html>`;
 }

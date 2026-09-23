@@ -33,8 +33,18 @@ export function renderConsejeros(consejeros: Consejero[]): string {
 
   const tabla = consejeros.length
     ? `
+      <div class="search-bar">
+        <input
+          type="search"
+          class="search-input"
+          placeholder="Buscar por nombre, barrio o estaca..."
+          aria-label="Buscar consejeros"
+          data-filter-input="consejeros-table"
+        />
+        <span class="search-count" data-filter-count="consejeros-table"></span>
+      </div>
       <div class="table-wrap">
-        <table class="table">
+        <table class="table" id="consejeros-table">
           <thead>
             <tr>
               <th>Consejero</th>
@@ -48,7 +58,8 @@ export function renderConsejeros(consejeros: Consejero[]): string {
             ${consejeros.map(renderFila).join('')}
           </tbody>
         </table>
-      </div>`
+      </div>
+      <p class="empty-state" data-filter-empty="consejeros-table" style="display:none;">No encontramos consejeros con ese criterio.</p>`
     : `<p class="empty-state">Todavía no confirmamos consejeros. los agregamos en <code>src/data/consejeros.ts</code>.</p>`;
 
   return `

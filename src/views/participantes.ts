@@ -31,8 +31,18 @@ export function renderParticipantes(participantes: Participante[]): string {
 
   const tabla = participantes.length
     ? `
+      <div class="search-bar">
+        <input
+          type="search"
+          class="search-input"
+          placeholder="Buscar por nombre o barrio..."
+          aria-label="Buscar participantes"
+          data-filter-input="participantes-table"
+        />
+        <span class="search-count" data-filter-count="participantes-table"></span>
+      </div>
       <div class="table-wrap">
-        <table class="table">
+        <table class="table" id="participantes-table">
           <thead>
             <tr>
               <th>Participante</th>
@@ -47,7 +57,8 @@ export function renderParticipantes(participantes: Participante[]): string {
             ${participantes.map(renderFila).join('')}
           </tbody>
         </table>
-      </div>`
+      </div>
+      <p class="empty-state" data-filter-empty="participantes-table" style="display:none;">No encontramos participantes con ese criterio.</p>`
     : `<p class="empty-state">Todavía no cargaste participantes. Agregalos en <code>src/data/participantes.ts</code>.</p>`;
 
   return `
