@@ -117,6 +117,33 @@ npm start       # corre el servidor compilado
 También incluí un `render.yaml` por si preferís usar "Blueprints" de Render
 para crear el servicio con un clic desde el repo.
 
+## Comentarios (requiere base de datos)
+
+La sección **Comentarios** (`/comentarios`) permite que cualquiera que use la
+página deje un mensaje visible para todo el equipo. Se guarda en una base de
+datos PostgreSQL, así que necesita la variable de entorno `DATABASE_URL`
+apuntando a una base Postgres real. Si no está configurada, el servidor sigue
+funcionando normalmente (todas las demás páginas andan igual), pero
+`/comentarios` muestra un aviso de que la base no está conectada.
+
+### Desarrollo local
+
+1. Conseguí una base Postgres (por ejemplo, gratis en [Neon](https://neon.tech)
+   o [Supabase](https://supabase.com), o una instalada localmente).
+2. Copiá `.env.example` a `.env` y completá `DATABASE_URL` con tu cadena de
+   conexión real. `.env` ya está en `.gitignore`, nunca se sube al repo.
+3. Corré `npm run dev` — al arrancar, el servidor crea sola la tabla
+   `comentarios` si todavía no existe (`ensureSchema()` en `src/db.ts`).
+
+### En Render
+
+1. En el dashboard de Render, agregá la variable de entorno `DATABASE_URL` al
+   Web Service, con la cadena de conexión de tu base Postgres (de Render,
+   Neon, Supabase, etc. — cualquiera sirve, solo tiene que ser accesible
+   desde internet).
+2. Volvé a desplegar (o esperá al próximo `git push`). El servidor crea la
+   tabla sola la primera vez que arranca con `DATABASE_URL` configurada.
+
 ## Próximos pasos posibles
 
 - Guardar todo (objetivos, consejeros, calendario) en una base de datos

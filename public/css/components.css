@@ -229,6 +229,7 @@
 .stat-tile--pending .stat-value { color: var(--color-pending-fg); }
 .stat-tile--progress .stat-value { color: var(--color-progress-fg); }
 .stat-tile--done .stat-value { color: var(--color-done-fg); }
+.stat-tile--warn .stat-value { color: var(--color-warn-fg); }
 
 .stat-label {
   font-size: 12.5px;
@@ -287,6 +288,19 @@
 
 .banner strong {
   color: var(--color-blue);
+}
+
+.banner--warn {
+  background: var(--color-warn-bg);
+  border-color: var(--color-warn-fg);
+}
+
+.banner--warn .dot {
+  background: var(--color-warn-fg);
+}
+
+.banner--warn strong {
+  color: var(--color-warn-fg);
 }
 
 /* ---------- Areas ---------- */
@@ -400,6 +414,7 @@
 .status--pending { background: var(--color-pending-bg); color: var(--color-pending-fg); }
 .status--progress { background: var(--color-progress-bg); color: var(--color-progress-fg); }
 .status--done { background: var(--color-done-bg); color: var(--color-done-fg); }
+.status--warn { background: var(--color-warn-bg); color: var(--color-warn-fg); }
 
 .obj-meta {
   display: flex;
@@ -692,6 +707,189 @@
 .pdf-desc {
   font-size: 12.5px;
   color: var(--color-text-muted);
+}
+
+/* ---------- Comentarios ---------- */
+
+.comment-form-section {
+  margin-top: 24px;
+}
+
+.comment-form {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.comment-form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.comment-form-row label {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--color-text-muted);
+}
+
+.comment-form-row input,
+.comment-form-row textarea {
+  font: inherit;
+  color: var(--color-text);
+  background: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  resize: vertical;
+}
+
+.comment-form-row input:focus,
+.comment-form-row textarea:focus {
+  outline: 2px solid var(--color-blue);
+  outline-offset: 1px;
+}
+
+.btn-primary {
+  align-self: flex-start;
+  background: var(--color-blue);
+  color: #FFFFFF;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.btn-primary:hover {
+  background: var(--color-navy);
+}
+
+.form-error {
+  color: var(--color-pending-fg);
+  background: var(--color-pending-bg);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  font-size: 13px;
+}
+
+.comment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.comment-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: 14px 16px;
+}
+
+.comment-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+
+.comment-author {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--color-navy);
+}
+
+.comment-date {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.comment-body {
+  font-size: 14px;
+  color: var(--color-text);
+  white-space: pre-wrap;
+}
+
+/* ---------- Predio (mapa de espacios) ---------- */
+
+.predio-maps-link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.predio-grid {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.predio-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.predio-card-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.predio-card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--color-surface-alt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 19px;
+  flex: none;
+}
+
+.predio-card-title {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-start;
+}
+
+.predio-card-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15.5px;
+  color: var(--color-navy);
+}
+
+.predio-card-uso,
+.predio-card-cap {
+  font-size: 13.5px;
+  color: var(--color-text);
+}
+
+.predio-card-notas {
+  font-size: 12.5px;
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border);
+  padding-top: 8px;
+  margin-top: 2px;
 }
 
 /* ---------- Estado vacío ---------- */

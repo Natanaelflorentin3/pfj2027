@@ -34,7 +34,7 @@ export interface AreaStats {
   pct: number;
 }
 
-export type NavKey = 'objetivos' | 'calendario' | 'consejeros' | 'participantes' | 'pdfs';
+export type NavKey = 'objetivos' | 'calendario' | 'consejeros' | 'participantes' | 'pdfs' | 'comentarios' | 'predio';
 
 /** Un día del PFJ dentro del calendario semanal. */
 export interface DiaCalendario {
@@ -99,6 +99,37 @@ export interface PdfDoc {
   descripcion?: string;
   /** Ruta pública del archivo, ej: "/pdfs/reglamento.pdf". null = todavía no se subió. */
   archivo: string | null;
+}
+
+/** Un comentario dejado por alguien del equipo, guardado en la base de datos. */
+export interface Comentario {
+  id: number;
+  nombre: string;
+  mensaje: string;
+  creadoEn: Date;
+}
+
+/** Información general del predio donde se hace el PFJ. */
+export interface PredioInfo {
+  nombre: string;
+  direccion: string;
+  mapsUrl: string;
+  /** Ej: "43 hectáreas" (fuente: Wikipedia, a confirmar en la recorrida) */
+  superficie?: string;
+}
+
+export type EstadoEspacio = 'apto' | 'requiere-adaptacion' | 'no-recomendado' | 'a-confirmar';
+
+/** Un espacio del predio (comedor, gimnasio, salón, etc.) y si nos sirve para las actividades. */
+export interface EspacioPredio {
+  id: string;
+  nombre: string;
+  icono: string;
+  usoPrevisto: string;
+  /** Texto libre: "~200 personas", "Grande (sin cuantificar)", "A confirmar", etc. */
+  capacidad: string;
+  estado: EstadoEspacio;
+  notas?: string;
 }
 
 

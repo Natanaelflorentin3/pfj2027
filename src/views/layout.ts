@@ -14,7 +14,8 @@ const NAV_ITEMS: { key: NavKey; label: string; href: string }[] = [
   { key: 'consejeros', label: 'Consejeros', href: '/consejeros' },
   { key: 'participantes', label: 'Participantes', href: '/participantes' },
   { key: 'pdfs', label: 'PDFs importantes', href: '/pdfs' },
-  
+  { key: 'predio', label: 'Predio', href: '/predio' },
+  { key: 'comentarios', label: 'Comentarios', href: '/comentarios' },
 ];
 
 function renderNav(active: NavKey): string {
