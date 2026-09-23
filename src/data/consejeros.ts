@@ -17,9 +17,21 @@ export const consejeros: Consejero[] = [
     nombre: 'Agustina',
     apellido: 'Altamirano',
     genero: 'Femenino',
-    estado: 'a-confirmar',
+    estado: 'confirmado',
     barrio: 'Villa Constitución',
     estaca: 'San Nicolás',
     rol: 'Consejera coordinadora de sesión',
   },
+
+
+{
+    id: 'Mateo-Hansen',
+    nombre: 'Mateo',
+    apellido: 'Hansen',
+    genero: 'Masculino',
+    estado: 'confirmado',
+    barrio: 'Independencia',
+    estaca: 'Rosario',
+    rol: 'Consejero coordinador de sesión',
+  }
 ];
