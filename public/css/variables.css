@@ -21,7 +21,10 @@
   /* Marca (del arte del lema) */
   --color-navy: #123A5E;
   --color-navy-deep: #0C2A44;
+  /* Fijo a propósito: el degradé del header siempre es azul oscuro, no cambia con el tema. */
+  --color-header-gradient-end: #123A5E;
   --color-blue: #2E7EB0;
+  /* Fijo a propósito: --color-sky solo se usa dentro del header oscuro (eyebrow y montaña decorativa), que no cambia con el tema. */
   --color-sky: #BFE1EE;
   --color-gold: #E7AC2E;
   --color-gold-soft: #F6E4B8;
@@ -44,6 +47,7 @@
   --radius-md: 14px;
   --radius-sm: 10px;
   --shadow-card: 0 1px 2px rgba(18, 58, 94, 0.05), 0 10px 26px -14px rgba(18, 58, 94, 0.25);
+  --shadow-card-hover: 0 4px 10px rgba(18, 58, 94, 0.09), 0 26px 48px -20px rgba(18, 58, 94, 0.35);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -58,8 +62,9 @@
 
     --color-navy: #BFE1EE;
     --color-navy-deep: #0B1B2B;
+    --color-header-gradient-end: #123A5E;
     --color-blue: #6FB3DC;
-    --color-sky: #1E4B68;
+    --color-sky: #BFE1EE;
     --color-gold: #F0C15C;
     --color-gold-soft: #3A2F14;
 
@@ -77,6 +82,7 @@
     --color-warn-fg: #F0958C;
 
     --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.35), 0 14px 32px -16px rgba(0, 0, 0, 0.6);
+    --shadow-card-hover: 0 4px 12px rgba(0, 0, 0, 0.45), 0 30px 56px -20px rgba(0, 0, 0, 0.75);
   }
 }
 
@@ -91,8 +97,9 @@
 
   --color-navy: #BFE1EE;
   --color-navy-deep: #0B1B2B;
+  --color-header-gradient-end: #123A5E;
   --color-blue: #6FB3DC;
-  --color-sky: #1E4B68;
+  --color-sky: #BFE1EE;
   --color-gold: #F0C15C;
   --color-gold-soft: #3A2F14;
 
@@ -110,4 +117,5 @@
   --color-warn-fg: #F0958C;
 
   --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.35), 0 14px 32px -16px rgba(0, 0, 0, 0.6);
+  --shadow-card-hover: 0 4px 12px rgba(0, 0, 0, 0.45), 0 30px 56px -20px rgba(0, 0, 0, 0.75);
 }
