@@ -7,8 +7,11 @@ import { diasCalendario } from './data/calendario';
 import { consejeros } from './data/consejeros';
 import { pdfsImportantes } from './data/pdfs';
 import { predioInfo, espaciosPredio } from './data/predio';
+import { hitos } from './data/hitos';
+import { vencimientos } from './data/vencimientos';
 import { ensureSchema } from './db';
 import { crearComentario, listarComentarios } from './repositories/comentarios';
+import { crearNota, listarNotas } from './repositories/notas';
 import { renderLayout } from './views/layout';
 import { renderHome } from './views/home';
 import { renderCalendario } from './views/calendario';
@@ -44,19 +47,49 @@ app.use(express.static(path.join(__dirname, '../public')));
 // Para poder leer los campos del formulario de comentarios
 app.use(express.urlencoded({ extended: true }));
 
-app.get('/', (_req, res) => {
+app.get('/', async (_req, res) => {
+  let notas: Awaited<ReturnType<typeof listarNotas>> = [];
+
+  if (DB_DISPONIBLE) {
+    try {
+      notas = await listarNotas();
+    } catch (err) {
+      console.error('Error al leer notas de dirección:', err);
+    }
+  }
+
   const html = renderLayout({
     active: 'objetivos',
-    pageTitle: 'Objetivos de Logística',
-    pageDescription: 'Seguimiento de objetivos del área de Logística del PFJ 2027.',
+    pageTitle: 'Dashboard de Logística',
+    pageDescription: 'Panel de coordinación logística del PFJ 2027.',
     eventInfo,
     bodyHtml: renderHome({
       eventInfo,
       areas,
+      hitos,
+      vencimientos,
+      notas,
+      dbDisponible: DB_DISPONIBLE,
       lastUpdated,
     }),
   });
   res.send(html);
+});
+
+app.post('/notas', async (req, res) => {
+  const autor = String(req.body?.autor || '').trim();
+  const mensaje = String(req.body?.mensaje || '').trim();
+
+  if (DB_DISPONIBLE && autor && mensaje) {
+    try {
+      await crearNota(autor.slice(0, 60), mensaje.slice(0, 500));
+    } catch (err) {
+      console.error('Error al guardar nota de dirección:', err);
+    }
+  }
+
+  // Patrón Post/Redirect/Get: evita que al recargar la página se reenvíe el formulario.
+  res.redirect('/');
 });
 
 app.get('/calendario', (_req, res) => {

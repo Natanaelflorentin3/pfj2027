@@ -38,9 +38,11 @@ export interface ComentariosPageModel {
 export function renderComentarios(model: ComentariosPageModel): string {
   const { comentarios, error, dbDisponible } = model;
 
-  const lista = comentarios.length
-    ? `<div class="comment-list">${comentarios.map(renderComentario).join('')}</div>`
-    : `<p class="empty-state">Todavía no hay comentarios. ¡Sé el primero en escribir uno!</p>`;
+  const lista = !dbDisponible
+    ? ''
+    : comentarios.length
+      ? `<div class="comment-list">${comentarios.map(renderComentario).join('')}</div>`
+      : `<p class="empty-state">Todavía no hay comentarios. ¡Sé el primero en escribir uno!</p>`;
 
   const formulario = dbDisponible
     ? `

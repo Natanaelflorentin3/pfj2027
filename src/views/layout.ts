@@ -26,9 +26,14 @@ function renderNav(active: NavKey): string {
   return `
     <nav class="topnav">
       <div class="wrap topnav-inner">
-        <span class="brand">PFJ 2027 <span class="brand-sep">·</span> Logística</span>
+        <div class="brand-block">
+          <span class="brand">PFJ 2027 <span class="brand-sep">·</span> Logística <span class="brand-badge">Uso interno</span></span>
+        </div>
         <div class="navlinks">${links}</div>
-        <button type="button" class="theme-toggle theme-toggle--nav" id="themeToggle" aria-label="Cambiar tema claro/oscuro">🌓</button>
+        <div class="nav-right">
+          <span class="nav-avatar" title="Matrimonio director de Logística">N&amp;J</span>
+          <button type="button" class="theme-toggle theme-toggle--nav" id="themeToggle" aria-label="Cambiar tema claro/oscuro">🌓</button>
+        </div>
       </div>
     </nav>`;
 }
@@ -53,7 +58,7 @@ export function renderLayout(model: LayoutModel): string {
   <meta name="description" content="${escapeHtml(pageDescription)}" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/css/variables.css" />
   <link rel="stylesheet" href="/css/base.css" />
   <link rel="stylesheet" href="/css/components.css" />
@@ -71,6 +76,7 @@ export function renderLayout(model: LayoutModel): string {
   ${bodyHtml}
   <script src="/js/theme.js" defer></script>
   <script src="/js/table-filter.js" defer></script>
+  <script src="/js/home-filter.js" defer></script>
 </body>
 </html>`;
 }

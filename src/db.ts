@@ -18,13 +18,21 @@ export const pool = new Pool({
   ssl: connectionString && !connectionString.includes('localhost') ? { rejectUnauthorized: false } : undefined,
 });
 
-/** Crea la tabla de comentarios si todavía no existe. Se llama al arrancar el server. */
+/** Crea las tablas si todavía no existen. Se llama al arrancar el server. */
 export async function ensureSchema(): Promise<void> {
   if (!connectionString) return;
   await pool.query(`
     CREATE TABLE IF NOT EXISTS comentarios (
       id SERIAL PRIMARY KEY,
       nombre TEXT NOT NULL,
+      mensaje TEXT NOT NULL,
+      creado_en TIMESTAMPTZ NOT NULL DEFAULT now()
+    );
+  `);
+  await pool.query(`
+    CREATE TABLE IF NOT EXISTS notas_direccion (
+      id SERIAL PRIMARY KEY,
+      autor TEXT NOT NULL,
       mensaje TEXT NOT NULL,
       creado_en TIMESTAMPTZ NOT NULL DEFAULT now()
     );

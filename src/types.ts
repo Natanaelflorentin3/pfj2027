@@ -8,11 +8,47 @@ export interface Objective {
   dueDate?: string;
 }
 
+/** Color de acento visual para distinguir cada área en el dashboard (solo estético). */
+export type AreaColor = 'sky' | 'red' | 'emerald' | 'amber' | 'indigo' | 'orange' | 'cyan' | 'navy';
+
 export interface Area {
   id: string;
   name: string;
   icon: string;
   objectives: Objective[];
+  /** Color de acento para la tarjeta del área en el dashboard. Si no se define, usa 'navy'. */
+  color?: AreaColor;
+}
+
+/** Estado de un hito dentro del avance logístico global del evento. */
+export type EstadoHito = 'listo' | 'en-curso' | 'pendiente';
+
+/** Un hito grande del cronograma de preparación (no una tarea puntual). */
+export interface Hito {
+  id: string;
+  titulo: string;
+  estado: EstadoHito;
+  /** Detalle corto, ej: "Abiertas el 27 de septiembre" */
+  detalle?: string;
+}
+
+/** Un vencimiento o entrega crítica próxima, cargado manualmente a medida que se definen. */
+export interface Vencimiento {
+  id: string;
+  titulo: string;
+  /** Nombre del área relacionada, ej: "Transporte" */
+  area: string;
+  /** Texto libre, ej: "Vence en 48 hs", "Vence el viernes" */
+  vence: string;
+  responsable?: string;
+}
+
+/** Una nota o recordatorio interno del matrimonio director, guardado en la base de datos. */
+export interface NotaDireccion {
+  id: number;
+  autor: string;
+  mensaje: string;
+  creadoEn: Date;
 }
 
 export interface EventInfo {

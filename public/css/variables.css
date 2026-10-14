@@ -5,8 +5,20 @@
 */
 
 :root {
-  --font-display: 'Sora', 'Segoe UI', sans-serif;
+  --font-display: 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
   --font-body: 'Inter', 'Segoe UI', sans-serif;
+
+  /* Acentos por área del dashboard (un solo tono fijo por área;
+     el fondo "suave" se arma con color-mix contra --color-surface,
+     así que se adapta solo entre modo claro y oscuro). */
+  --area-sky: #0284C7;
+  --area-red: #DC2626;
+  --area-emerald: #059669;
+  --area-amber: #D97706;
+  --area-indigo: #4F46E5;
+  --area-orange: #EA580C;
+  --area-cyan: #0891B2;
+  --area-navy: #123A5E;
 
   /* Superficie */
   --color-bg: #FAF4E6;
@@ -28,6 +40,8 @@
   --color-sky: #BFE1EE;
   --color-gold: #E7AC2E;
   --color-gold-soft: #F6E4B8;
+  /* Fijo a propósito: se usa para texto dentro del hero oscuro (siempre oscuro, no cambia con el tema). */
+  --color-gold-on-dark: #F6E4B8;
 
   --color-primary: var(--color-blue);
   --color-primary-soft: #DDEEF6;
@@ -43,6 +57,7 @@
   --color-warn-bg: #F8DCD8;
   --color-warn-fg: #A3312A;
 
+  --radius-xl: 28px;
   --radius-lg: 20px;
   --radius-md: 14px;
   --radius-sm: 10px;
@@ -67,6 +82,7 @@
     --color-sky: #BFE1EE;
     --color-gold: #F0C15C;
     --color-gold-soft: #3A2F14;
+    --color-gold-on-dark: #F6E4B8;
 
     --color-primary: var(--color-blue);
     --color-primary-soft: #17324A;
@@ -102,6 +118,7 @@
   --color-sky: #BFE1EE;
   --color-gold: #F0C15C;
   --color-gold-soft: #3A2F14;
+  --color-gold-on-dark: #F6E4B8;
 
   --color-primary: var(--color-blue);
   --color-primary-soft: #17324A;

@@ -23,6 +23,7 @@ export const areas: Area[] = [
     id: 'transporte',
     name: 'Colectivos / Transporte',
     icon: '🚌',
+    color: 'sky',
     objectives: [
       { id: 'transporte-1', name: 'Definir cantidad de unidades y proveedor', status: 'pending' },
       { id: 'transporte-2', name: 'Coordinar rutas y horarios de traslado', status: 'pending' },
@@ -32,6 +33,7 @@ export const areas: Area[] = [
     id: 'seguridad',
     name: 'Seguridad',
     icon: '🛡️',
+    color: 'red',
     objectives: [
       { id: 'seguridad-1', name: 'Armar plan de seguridad y control de acceso al predio', status: 'progress', responsible: 'Natanael Florentin' },
     ],
@@ -40,6 +42,7 @@ export const areas: Area[] = [
     id: 'primeros-auxilios',
     name: 'Primeros auxilios',
     icon: '⛑️',
+    color: 'emerald',
     objectives: [
       { id: 'pa-1', name: 'Definir posta médica, insumos y cobertura', status: 'progress', responsible: 'Jael Florentin' },
     ],
@@ -48,6 +51,7 @@ export const areas: Area[] = [
     id: 'camisetas',
     name: 'Camisetas',
     icon: '👕',
+    color: 'amber',
     objectives: [
       { id: 'camisetas-1', name: 'Definir diseño, talles y cantidades', status: 'pending' },
       { id: 'camisetas-2', name: 'Cotizar proveedor y confirmar presupuesto', status: 'pending' },
@@ -57,6 +61,7 @@ export const areas: Area[] = [
     id: 'kits',
     name: 'Kits',
     icon: '🎒',
+    color: 'indigo',
     objectives: [
       { id: 'kits-1', name: 'Definir contenido del kit y armar cantidades por compañía', status: 'pending' },
     ],
@@ -66,6 +71,7 @@ export const areas: Area[] = [
     id: 'Comida',
     name: 'Comida',
     icon: '🍽️',
+    color: 'orange',
     objectives: [
       { id: 'Comida-1', name: 'Definir tipo de comida y cantidades', status: 'pending' },
     ],
@@ -76,6 +82,7 @@ export const areas: Area[] = [
     id: 'Tecnología',
     name: 'Tecnología',
     icon: '💻',
+    color: 'cyan',
     objectives: [
       { id: 'Tecnología-1', name: 'Definir necesidades tecnológicas y armar plan de implementación', status: 'progress', responsible: 'Natanael Florentin' },
     ],
